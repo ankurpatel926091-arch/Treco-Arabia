@@ -9,10 +9,12 @@ export const translations = {
       langName: "العربية"
     },
     hero: {
-      badge: "🇸🇦 Saudi Arabia's Leading Automation Partner",
-      titleStart: "Your Search for the Perfect ",
+      badge: "Saudi Arabia's Leading Automation Partner",
+      titleLine1: "Your Search for the Perfect",
+      titleStart: "Your Search for the Perfect",
       titleHighlight: "Home & Industrial Automation",
-      titleEnd: " Company Ends Here!",
+      titleLine2: "Company Ends Here!",
+      titleEnd: "Company Ends Here!",
       subtitle: "Connecting residential lifestyles and industrial operations with smart IoT & engineering solutions across Saudi Arabia.",
       btnPrimary: "Home Automation",
       btnSecondary: "Industrial Automation",
@@ -117,11 +119,13 @@ export const translations = {
       langName: "English"
     },
     hero: {
-      badge: "🇸🇦 رائد أتمتة المنازل والمصانع بالمملكة العربية السعودية",
-      titleStart: "بحثك عن الشركة المثالية ",
+      badge: "رائد حلول الأتمتة بالمملكة العربية السعودية",
+      titleLine1: "بحثك عن الشركة المثالية",
+      titleStart: "بحثك عن الشركة المثالية",
       titleHighlight: "لأتمتة المنازل والصناعة",
-      titleEnd: " ينتهي هنا!",
-      subtitle: "حلول تقنية متكاملة لأتمتة المنازل الذكية والمباني والمصانع بالمملكة العربية السعودية.",
+      titleLine2: "ينتهي هنا!",
+      titleEnd: "ينتهي هنا!",
+      subtitle: "حلول تقنية متكاملة لربط أسلوب الحياة العصري والعمليات الصناعية بحلول إنترنت الأشياء في السعودية.",
       btnPrimary: "أتمتة المنازل",
       btnSecondary: "الأتمتة الصناعية",
       statProjects: "مشروع مكتمل",

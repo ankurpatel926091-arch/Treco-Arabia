@@ -211,10 +211,10 @@ function Footer({ t, lang, onNavigateHome, onNavigateContact }) {
             <a href="#" className="hover:text-white transition-colors">Refund Policy</a>
             
             {/* Admin Login Badge */}
-            <a href="/login" className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-white font-extrabold flex items-center gap-1.5 border border-slate-700">
+            {/* <a href="/login" className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-white font-extrabold flex items-center gap-1.5 border border-slate-700">
               <Lock className="w-3.5 h-3.5 text-[#00A3E8]" />
               <span>Admin</span>
-            </a>
+            </a> */}
           </div>
 
           {/* Designer Credit */}
