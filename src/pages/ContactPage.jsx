@@ -1,32 +1,45 @@
 import React, { useEffect } from 'react';
-import { ChevronRight, MapPin, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronRight, MapPin, Sparkles, ExternalLink } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 
-function ContactPage({ t, lang, onBackHome }) {
+function ContactPage({ t, lang }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div className="pt-24 bg-white min-h-screen">
+    <div className="pt-20 bg-white min-h-screen">
       
       {/* Contact Page Hero Banner */}
-      <section className="bg-gradient-to-b from-slate-100 via-slate-50 to-white py-14 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white py-16 sm:py-20 border-b border-slate-200 overflow-hidden">
+        {/* Subtle dot pattern */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.035]"
+          style={{
+            backgroundImage: `radial-gradient(#00A3E8 1px, transparent 1px)`,
+            backgroundSize: '28px 28px'
+          }}
+        />
+        {/* Decorative Ambient Cyan Glows */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-sky-400/10 blur-[130px] pointer-events-none rounded-full" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           {/* Breadcrumb Navigation */}
           <div className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">
-            <button 
-              onClick={onBackHome}
+            <Link 
+              to="/"
               className="hover:text-[#00A3E8] transition-colors cursor-pointer"
             >
               {t.nav.home}
-            </button>
+            </Link>
             <ChevronRight className={`w-3.5 h-3.5 ${lang === 'ar' ? 'rotate-180' : ''}`} />
             <span className="text-[#00A3E8]">{t.nav.contact}</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A3E8]/10 text-[#00A3E8] font-bold text-xs uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{lang === 'ar' ? 'تواصل مع فريق تريكو' : 'Get in Touch with Treco Engineers'}</span>
           </div>
@@ -35,7 +48,7 @@ function ContactPage({ t, lang, onBackHome }) {
             {lang === 'ar' ? 'اتصل بنا واحصل على استشارة تقنية' : 'Contact Us & Request Technical Consultation'}
           </h1>
 
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium">
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium leading-relaxed">
             {lang === 'ar' 
               ? 'فريقنا الهندسي في جدة جاهز للإجابة على جميع استفساراتك وتصميم الحل المناسب لمشروعك.' 
               : 'Our engineering team in Jeddah is ready to assist you with tailored smart home and industrial automation engineering.'}
@@ -47,33 +60,72 @@ function ContactPage({ t, lang, onBackHome }) {
       {/* Main Contact Form & Location Details */}
       <ContactSection t={t} />
 
-      {/* Google Maps / Jeddah Location Box */}
-      <section className="py-12 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Interactive Google Maps Section */}
+      <section className="py-16 bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC]/60 to-white border-t border-slate-200 relative overflow-hidden">
+        {/* Decorative Ambient Cyan Glows */}
+        <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-10 right-10 w-[600px] h-[350px] bg-sky-400/10 blur-[130px] pointer-events-none rounded-full" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Header Card above Map */}
+          <div className="bg-white/95 backdrop-blur-sm p-6 sm:p-8 rounded-t-3xl border border-b-0 border-slate-200/90 shadow-[0_10px_30px_rgba(0,163,232,0.06)] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+            {/* Top Subtle Border Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 flex items-center justify-center text-[#00A3E8] flex-shrink-0">
-                <MapPin className="w-6 h-6" />
+              <div className="w-14 h-14 rounded-2xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 flex items-center justify-center text-[#00A3E8] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#00A3E8] group-hover:text-slate-950 transition-all duration-300">
+                <MapPin className="w-7 h-7" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900">
-                  {lang === 'ar' ? 'موقعنا على الخريطة' : 'Visit Our Jeddah Office'}
+                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#00A3E8]/10 text-[#00A3E8] font-black text-[10px] uppercase tracking-wider mb-1">
+                  <span>{lang === 'ar' ? 'المقر الرئيسي بجدة' : 'JEDDAH HEADQUARTERS'}</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-[#00A3E8] transition-colors">
+                  {lang === 'ar' ? 'موقعنا على الخريطة المباشرة' : 'Find Us on Google Maps'}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600">
-                  Majid Noor near Baladia Camp, Wadi Mraykh, Jeddah, Saudi Arabia 23254
+                <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
+                  Majid Noor near Baladia Camp, Wadi Mraykh, Jeddah, Saudi Arabia 23254 • (21°32'32.1"N 39°18'00.9"E)
                 </p>
               </div>
             </div>
 
             <a
-              href="https://maps.app.goo.gl/PXm3ZaU5nD68Ek9G7"
+              href="https://www.google.com/maps/search/?api=1&query=21.54225,39.30025"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-[#00A3E8] text-white hover:text-black font-extrabold text-xs transition-all shadow-sm whitespace-nowrap cursor-pointer"
+              className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-[#00A3E8] text-white hover:text-slate-950 font-black text-xs sm:text-sm transition-all shadow-md hover:shadow-lg whitespace-nowrap cursor-pointer flex items-center gap-2 group/btn"
             >
-              {lang === 'ar' ? 'عرض على خرائط جوجل' : 'Open in Google Maps'}
+              <span>{lang === 'ar' ? 'عرض على خرائط جوجل' : 'Open in Google Maps'}</span>
+              <ExternalLink className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
             </a>
           </div>
+
+          {/* Interactive Embedded Google Map */}
+          <div className="w-full h-[380px] sm:h-[460px] rounded-b-3xl overflow-hidden border border-slate-200/90 shadow-[0_20px_45px_rgba(0,163,232,0.12)] relative bg-slate-100">
+            <iframe
+              title="Treco Arabia Jeddah Office Location"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3711.117766436658!2d39.30025!3d21.54225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDMyJzMyLjEiTiAzOcKwMTgnMDAuOSJF!5e0!3m2!1sen!2sin!4v1791364725248!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="w-full h-full"
+            />
+            {/* Clickable Quick Navigation Floating Badge on Map */}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=21.54225,39.30025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 px-4 py-2.5 rounded-xl bg-slate-950/90 hover:bg-[#00A3E8] text-white hover:text-slate-950 font-black text-xs backdrop-blur-md border border-white/20 transition-all shadow-xl flex items-center gap-2 cursor-pointer z-10"
+            >
+              <MapPin className="w-4 h-4 text-[#00A3E8] group-hover:text-slate-950" />
+              <span>{lang === 'ar' ? 'التوجيه الملاحي المباشر' : 'Get Live Directions'}</span>
+            </a>
+          </div>
+
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ShieldCheck, ArrowRight, Sparkles, CheckCircle2, Home, Wrench } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ShieldCheck, Sparkles, CheckCircle2, Home, Wrench } from 'lucide-react';
 import defaultHeroVideo from '../assets/vdo/Smart_home_video_animation_sequence_20261006133731.mp4';
 
 function Hero({ t, lang, videoUrl }) {
@@ -26,8 +27,8 @@ function Hero({ t, lang, videoUrl }) {
         <div className="text-center max-w-3xl mx-auto">
           
           {/* KSA Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-md text-[11px] sm:text-xs font-bold text-white mb-4 sm:mb-6 shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-[#00A3E8]" />
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-black/65 border border-white/25 backdrop-blur-md text-xs sm:text-sm font-semibold text-white mb-5 sm:mb-7 shadow-lg tracking-wide">
+            <Sparkles className="w-4 h-4 text-[#00A3E8] flex-shrink-0" />
             <span>{t.hero.badge.replace(/^🇸🇦\s*/, '')}</span>
           </div>
 
@@ -51,21 +52,21 @@ function Hero({ t, lang, videoUrl }) {
 
           {/* Action Buttons - Side by Side on Mobile */}
           <div className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 mb-8 sm:mb-12 max-w-md mx-auto">
-            <a
-              href="#smart-home"
+            <Link
+              to="/smart-home"
               className="flex-1 sm:flex-initial px-4 py-2.5 sm:px-8 sm:py-3.5 rounded-xl bg-[#00A3E8] hover:bg-cyan-400 text-black font-extrabold text-xs sm:text-sm shadow-[0_4px_20px_rgba(0,163,232,0.5)] transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap"
             >
               <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               <span>{t.hero.btnPrimary}</span>
-            </a>
+            </Link>
 
-            <a
-              href="#industrial"
+            <Link
+              to="/industrial"
               className="flex-1 sm:flex-initial px-4 py-2.5 sm:px-8 sm:py-3.5 rounded-xl bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap"
             >
               <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00A3E8] flex-shrink-0" />
               <span>{t.hero.btnSecondary}</span>
-            </a>
+            </Link>
           </div>
 
           {/* Quick Metrics Bar - Compact Responsive Grid */}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle2, Sparkles } from 'lucide-react';
 
 function ContactSection({ t }) {
   const [submitted, setSubmitted] = useState(false);
@@ -11,57 +11,78 @@ function ContactSection({ t }) {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-white text-slate-900">
+    <section id="contact" className="py-24 relative bg-gradient-to-b from-white via-[#F0F7FF] to-white text-slate-900 overflow-hidden">
+      
+      {/* Decorative Radiant Cyan Glows */}
+      <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 right-10 w-[600px] h-[350px] bg-sky-400/10 blur-[130px] pointer-events-none rounded-full" />
+
+      {/* Subtle Micro-Dot Tech Grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#00A3E8 1px, transparent 1px)',
+          backgroundSize: '28px 28px'
+        }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           
           {/* Left Contact Info & Map Details */}
           <div>
-            <span className="text-xs font-bold tracking-widest text-[#00A3E8] uppercase mb-2 block">
-              CONTACT US
-            </span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>CONTACT US</span>
+            </div>
             
-            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
               {t.contact.title}
             </h2>
 
-            <p className="text-slate-600 text-base mb-10 font-normal">
+            <p className="text-slate-600 text-base mb-10 font-normal leading-relaxed">
               {t.contact.subtitle}
             </p>
 
-            <div className="space-y-6 mb-10">
+            <div className="space-y-5 mb-10">
               
               {/* Phone */}
-              <a href="tel:+966500761791" className="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex items-center gap-4 hover:border-emerald-500 transition-colors group shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
+              <a 
+                href="tel:+966500761791" 
+                className="bg-white/95 backdrop-blur-sm p-6 rounded-3xl border border-slate-200/90 flex items-center gap-4 hover:border-emerald-500 shadow-[0_8px_25px_rgba(16,185,129,0.06)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.18)] hover:-translate-y-1 transition-all group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all shadow-xs">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-500 uppercase font-bold tracking-wider block">Call Direct (KSA)</span>
-                  <span className="text-lg font-black text-slate-900 dir-ltr block">{t.contact.phone}</span>
+                  <span className="text-xs text-slate-500 uppercase font-black tracking-wider block">Call Direct (KSA)</span>
+                  <span className="text-xl font-black text-slate-900 dir-ltr block mt-0.5">{t.contact.phone}</span>
                 </div>
               </a>
 
               {/* Email */}
-              <a href="mailto:info@treco.in" className="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex items-center gap-4 hover:border-[#00A3E8] transition-colors group shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 flex items-center justify-center text-[#00A3E8] group-hover:scale-110 transition-transform">
+              <a 
+                href="mailto:info@treco.in" 
+                className="bg-white/95 backdrop-blur-sm p-6 rounded-3xl border border-slate-200/90 flex items-center gap-4 hover:border-[#00A3E8] shadow-[0_8px_25px_rgba(0,163,232,0.06)] hover:shadow-[0_15px_30px_rgba(0,163,232,0.18)] hover:-translate-y-1 transition-all group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 flex items-center justify-center text-[#00A3E8] group-hover:scale-110 group-hover:bg-[#00A3E8] group-hover:text-white transition-all shadow-xs">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-500 uppercase font-bold tracking-wider block">Official Email</span>
-                  <span className="text-lg font-black text-slate-900">{t.contact.email}</span>
+                  <span className="text-xs text-slate-500 uppercase font-black tracking-wider block">Official Email</span>
+                  <span className="text-xl font-black text-slate-900 block mt-0.5">{t.contact.email}</span>
                 </div>
               </a>
 
               {/* Address */}
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex items-center gap-4 shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-600 flex-shrink-0">
+              <div className="bg-white/95 backdrop-blur-sm p-6 rounded-3xl border border-slate-200/90 flex items-center gap-4 shadow-[0_8px_25px_rgba(147,51,234,0.06)]">
+                <div className="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-600 flex-shrink-0 shadow-xs">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-500 uppercase font-bold tracking-wider block">{t.contact.addressTitle}</span>
-                  <span className="text-sm font-bold text-slate-800">{t.contact.addressText}</span>
+                  <span className="text-xs text-slate-500 uppercase font-black tracking-wider block">{t.contact.addressTitle}</span>
+                  <span className="text-sm font-bold text-slate-800 leading-relaxed block mt-0.5">{t.contact.addressText}</span>
                 </div>
               </div>
 
@@ -69,18 +90,21 @@ function ContactSection({ t }) {
           </div>
 
           {/* Right Quote Request Form */}
-          <div className="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl relative">
+          <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-12 rounded-3xl border border-slate-200/90 shadow-[0_20px_50px_-10px_rgba(0,163,232,0.15),0_10px_30px_-5px_rgba(15,23,42,0.06)] relative overflow-hidden">
             
-            <h3 className="text-2xl font-black text-slate-900 mb-2">
+            {/* Top Cyan Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent pointer-events-none" />
+
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">
               {t.contact.formTitle}
             </h3>
-            <p className="text-xs text-slate-500 font-semibold mb-6">Fill in your requirements and our Saudi engineering team will call you back within 2 hours.</p>
+            <p className="text-xs text-slate-500 font-semibold mb-8">Fill in your requirements and our Saudi engineering team will call you back within 2 hours.</p>
 
             {submitted ? (
-              <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto animate-bounce" />
-                <h4 className="text-lg font-bold text-slate-900">Thank You!</h4>
-                <p className="text-sm text-slate-700">{t.contact.successMsg}</p>
+              <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
+                <CheckCircle2 className="w-14 h-14 text-emerald-600 mx-auto animate-bounce" />
+                <h4 className="text-xl font-black text-slate-900">Thank You!</h4>
+                <p className="text-sm text-slate-700 font-medium">{t.contact.successMsg}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -91,7 +115,7 @@ function ContactSection({ t }) {
                     type="text" 
                     required 
                     placeholder="e.g. Eng. Abdullah Al-Ghamdi"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#00A3E8] transition-colors"
+                    className="w-full px-4 py-3.5 rounded-xl bg-slate-50/80 border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#00A3E8] focus:bg-white transition-all shadow-xs"
                   />
                 </div>
 
@@ -101,13 +125,13 @@ function ContactSection({ t }) {
                     type="tel" 
                     required 
                     placeholder="+966 5X XXX XXXX"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#00A3E8] transition-colors dir-ltr"
+                    className="w-full px-4 py-3.5 rounded-xl bg-slate-50/80 border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#00A3E8] focus:bg-white transition-all dir-ltr shadow-xs"
                   />
                 </div>
 
                 <div>
                   <label className="text-xs font-bold text-slate-700 block mb-1.5">{t.contact.service}</label>
-                  <select className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-800 focus:outline-none focus:border-[#00A3E8] transition-colors">
+                  <select className="w-full px-4 py-3.5 rounded-xl bg-slate-50/80 border border-slate-300 text-sm text-slate-800 focus:outline-none focus:border-[#00A3E8] focus:bg-white transition-all shadow-xs">
                     {t.contact.servicesList.map((svc, idx) => (
                       <option key={idx} value={svc} className="text-slate-900">{svc}</option>
                     ))}
@@ -120,13 +144,13 @@ function ContactSection({ t }) {
                     rows="3" 
                     required
                     placeholder="Describe your villa, apartment, or factory automation requirements..."
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#00A3E8] transition-colors"
+                    className="w-full px-4 py-3.5 rounded-xl bg-slate-50/80 border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#00A3E8] focus:bg-white transition-all shadow-xs"
                   ></textarea>
                 </div>
 
                 <button 
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#00A3E8] hover:bg-cyan-500 text-white font-extrabold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl bg-[#00A3E8] hover:bg-cyan-500 text-white font-black text-sm shadow-[0_8px_25px_rgba(0,163,232,0.4)] transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>{t.contact.submitBtn}</span>

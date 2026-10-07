@@ -3,9 +3,11 @@ export const translations = {
     nav: {
       home: "Home",
       smartHome: "Smart Home",
+      offerings: "What We Offer",
       industrial: "Industrial Automation",
       about: "Who We Are",
       contact: "Contact Us",
+      getQuote: "Request a Quote",
       langName: "العربية"
     },
     hero: {
@@ -113,9 +115,11 @@ export const translations = {
     nav: {
       home: "الرئيسية",
       smartHome: "المنزل الذكي",
+      offerings: "خدماتنا",
       industrial: "الأتمتة الصناعية",
       about: "من نحن",
       contact: "اتصل بنا",
+      getQuote: "طلب عرض سعر",
       langName: "English"
     },
     hero: {

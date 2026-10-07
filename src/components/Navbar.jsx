@@ -1,38 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Phone, Globe, Menu, X, Cpu, ChevronRight, 
   Home, Lightbulb, Layers, Wrench 
 } from 'lucide-react';
 
-function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
+function Navbar({ lang, setLang, t }) {
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const isContactPage = currentPage === 'contact';
+  const location = useLocation();
+  const navigate = useNavigate();
+  const drawerRef = useRef(null);
+  const menuButtonRef = useRef(null);
 
-  // Dynamic Scroll Spy on Home Page
-  useEffect(() => {
-    if (isContactPage) return;
-
-    const handleScroll = () => {
-      const sections = ['industrial', 'offerings', 'smart-home', 'home'];
-      const scrollPosition = window.scrollY + 160;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isContactPage]);
+  const isContactPage = location.pathname === '/contact';
 
   const toggleLanguage = () => {
     const nextLang = lang === 'en' ? 'ar' : 'en';
@@ -41,37 +22,77 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
     document.documentElement.setAttribute('lang', nextLang);
   };
 
-  const handleNavClick = (sectionId) => {
-    setMobileMenu(false);
-    if (isContactPage) {
-      setCurrentPage('home');
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 50);
-    } else {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      setActiveSection(sectionId);
-    }
-  };
+  const navLinks = [
+    { path: '/', label: t.nav.home, icon: Home },
+    { path: '/smart-home', label: t.nav.smartHome, icon: Lightbulb },
+    { path: '/offerings', label: t.nav.offerings || (lang === 'ar' ? 'خدماتنا' : 'What We Offer'), icon: Layers },
+    { path: '/industrial', label: t.nav.industrial, icon: Wrench },
+  ];
 
-  const goToContact = () => {
+  const handleNavigation = (path) => {
     setMobileMenu(false);
-    setCurrentPage('contact');
+    navigate(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navItemClass = (key) => {
-    const isActive = !isContactPage && activeSection === key;
+  const prevPathnameRef = useRef(location.pathname);
+  useEffect(() => {
+    if (prevPathnameRef.current !== location.pathname) {
+      prevPathnameRef.current = location.pathname;
+      setMobileMenu(false);
+    }
+  }, [location.pathname]);
+
+  // Handle outside click, touch, escape key, and scroll lock
+  useEffect(() => {
+    if (!mobileMenu) return;
+
+    const handleOutsideInteraction = (event) => {
+      // If clicking inside the drawer or on the menu toggle button, don't close
+      if (
+        (drawerRef.current && drawerRef.current.contains(event.target)) ||
+        (menuButtonRef.current && menuButtonRef.current.contains(event.target))
+      ) {
+        return;
+      }
+      setMobileMenu(false);
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideInteraction);
+    document.addEventListener('touchstart', handleOutsideInteraction);
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Prevent background scrolling while mobile menu is open
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideInteraction);
+      document.removeEventListener('touchstart', handleOutsideInteraction);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [mobileMenu]);
+
+  // Close menu on desktop resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenu(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const navItemClass = (path) => {
+    const isActive = location.pathname === path;
     return `transition-all py-1 font-bold text-sm border-b-2 cursor-pointer ${
       isActive
         ? 'text-[#00A3E8] border-[#00A3E8]'
@@ -79,21 +100,17 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
     }`;
   };
 
-  // Mobile menu items
-  const mobileMenuItems = [
-    { key: 'home', label: t.nav.home, icon: Home, action: () => handleNavClick('home') },
-    { key: 'smart-home', label: t.nav.smartHome, icon: Lightbulb, action: () => handleNavClick('smart-home') },
-    { key: 'offerings', label: lang === 'ar' ? 'خدماتنا' : 'What We Offer', icon: Layers, action: () => handleNavClick('offerings') },
-    { key: 'industrial', label: t.nav.industrial, icon: Wrench, action: () => handleNavClick('industrial') },
-  ];
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Brand Logo - Navigates to Home */}
-        <button 
-          onClick={() => handleNavClick('home')} 
+        <Link 
+          to="/" 
+          onClick={() => {
+            setMobileMenu(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="flex items-center gap-3 group text-left cursor-pointer"
         >
           <div className="w-10 h-10 rounded-xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 flex items-center justify-center text-[#00A3E8] group-hover:bg-[#00A3E8] group-hover:text-white transition-all">
@@ -107,37 +124,20 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
               {lang === 'ar' ? 'جدة - المملكة العربية السعودية' : 'Jeddah - Saudi Arabia'}
             </span>
           </div>
-        </button>
+        </Link>
 
-        {/* Desktop Nav Links (Without middle Contact Us) */}
+        {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <button 
-            onClick={() => handleNavClick('home')}
-            className={navItemClass('home')}
-          >
-            {t.nav.home}
-          </button>
-
-          <button 
-            onClick={() => handleNavClick('smart-home')}
-            className={navItemClass('smart-home')}
-          >
-            {t.nav.smartHome}
-          </button>
-
-          <button 
-            onClick={() => handleNavClick('offerings')}
-            className={navItemClass('offerings')}
-          >
-            {lang === 'ar' ? 'خدماتنا' : 'What We Offer'}
-          </button>
-
-          <button 
-            onClick={() => handleNavClick('industrial')}
-            className={navItemClass('industrial')}
-          >
-            {t.nav.industrial}
-          </button>
+          {navLinks.map(({ path, label }) => (
+            <Link 
+              key={path}
+              to={path}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className={navItemClass(path)}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
         {/* Desktop Actions */}
@@ -152,11 +152,10 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
             <span>{t.nav.langName}</span>
           </button>
 
-          
-
           {/* Contact Us CTA Button */}
-          <button
-            onClick={goToContact}
+          <Link
+            to="/contact"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`px-5 py-2.5 rounded-xl font-extrabold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center gap-1.5 ${
               isContactPage 
                 ? 'bg-slate-900 text-white' 
@@ -165,7 +164,7 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
           >
             <span>{t.nav.contact}</span>
             <ChevronRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Header Actions */}
@@ -179,28 +178,36 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
           </button>
 
           <button 
+            ref={menuButtonRef}
             onClick={() => setMobileMenu(!mobileMenu)}
             aria-label="Toggle Menu"
-            className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 hover:text-[#00A3E8] transition-colors"
+            className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 hover:text-[#00A3E8] transition-colors cursor-pointer"
           >
             {mobileMenu ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Submenu Drawer */}
-      {mobileMenu && (
-        <div className="fixed inset-0 top-20 bg-slate-950/60 backdrop-blur-sm z-50 md:hidden flex flex-col justify-start animate-fade-in">
-          <div className="bg-white rounded-b-3xl shadow-2xl border-b border-slate-200 px-5 pt-4 pb-6 space-y-2">
-            
+      {/* Mobile Submenu Drawer Portal */}
+      {mobileMenu && typeof document !== 'undefined' && createPortal(
+        <div 
+          className="fixed inset-0 top-20 z-50 md:hidden bg-slate-950/60 backdrop-blur-sm flex flex-col justify-start animate-fade-in"
+          onClick={() => setMobileMenu(false)}
+        >
+          {/* Menu Drawer Content Card */}
+          <div 
+            ref={drawerRef}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-b-3xl shadow-2xl border-b border-slate-200 px-5 pt-4 pb-6 space-y-2"
+          >
             {/* Menu List Items */}
             <div className="space-y-1.5">
-              {mobileMenuItems.map(({ key, label, icon: Icon, action }) => {
-                const isActive = !isContactPage && activeSection === key;
+              {navLinks.map(({ path, label, icon: Icon }) => {
+                const isActive = location.pathname === path;
                 return (
                   <button
-                    key={key}
-                    onClick={action}
+                    key={path}
+                    onClick={() => handleNavigation(path)}
                     className={`w-full flex items-center justify-between p-3 rounded-2xl transition-all cursor-pointer ${
                       isActive
                         ? 'bg-[#00A3E8]/10 border border-[#00A3E8]/30 text-[#00A3E8]'
@@ -229,6 +236,7 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
             <div className="pt-3 border-t border-slate-100 space-y-2.5">
               <a 
                 href="tel:+966500761791" 
+                onClick={() => setMobileMenu(false)}
                 className="w-full flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 hover:border-[#00A3E8] transition-colors"
               >
                 <div className="flex items-center gap-2.5">
@@ -241,7 +249,7 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
               </a>
 
               <button
-                onClick={goToContact}
+                onClick={() => handleNavigation('/contact')}
                 className="w-full py-3.5 rounded-xl bg-[#00A3E8] hover:bg-cyan-500 text-white font-extrabold text-sm text-center shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>{t.nav.contact}</span>
@@ -251,11 +259,14 @@ function Navbar({ lang, setLang, t, currentPage, setCurrentPage }) {
 
           </div>
 
+          {/* Full Clickable Backdrop Area below Menu Drawer */}
           <div 
             onClick={() => setMobileMenu(false)} 
-            className="flex-1 w-full"
-          ></div>
-        </div>
+            className="flex-1 w-full cursor-pointer"
+            aria-label="Close menu backdrop"
+          />
+        </div>,
+        document.body
       )}
     </header>
   );

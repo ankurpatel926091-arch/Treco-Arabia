@@ -1,15 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  Cpu, Phone, Mail, MapPin, ChevronRight, Lock
+  Cpu, Phone, Mail, MapPin, ChevronRight
 } from 'lucide-react';
 
-function Footer({ t, lang, onNavigateHome, onNavigateContact }) {
-  const handleScrollTo = (id) => {
-    onNavigateHome();
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
+function Footer({ t, lang }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -21,14 +18,14 @@ function Footer({ t, lang, onNavigateHome, onNavigateContact }) {
           
           {/* Column 1: Brand Info */}
           <div className="space-y-4">
-            <button onClick={onNavigateHome} className="flex items-center gap-3 cursor-pointer text-left">
+            <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 cursor-pointer text-left">
               <div className="w-11 h-11 rounded-xl bg-[#00A3E8] flex items-center justify-center text-white shadow-md">
                 <Cpu className="w-6 h-6" />
               </div>
               <span className="text-2xl font-black text-white tracking-wider">
                 TRECO <span className="text-[#00A3E8]">ARABIA</span>
               </span>
-            </button>
+            </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed font-normal">
               {lang === 'ar' 
@@ -64,40 +61,34 @@ function Footer({ t, lang, onNavigateHome, onNavigateContact }) {
             </h4>
             <ul className="space-y-3.5 text-sm font-semibold text-slate-200">
               <li>
-                <button onClick={onNavigateHome} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>{t.nav.home}</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('smart-home')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/smart-home" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>{t.nav.smartHome}</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('offerings')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/offerings" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
-                  <span>{lang === 'ar' ? 'خدماتنا' : 'What We Offer'}</span>
-                </button>
+                  <span>{t.nav.offerings || (lang === 'ar' ? 'خدماتنا' : 'What We Offer')}</span>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('industrial')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/industrial" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>{t.nav.industrial}</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('stats')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
-                  <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
-                  <span>{t.nav.about}</span>
-                </button>
-              </li>
-              <li>
-                <button onClick={onNavigateContact} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/contact" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>{t.nav.contact}</span>
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -109,34 +100,34 @@ function Footer({ t, lang, onNavigateHome, onNavigateContact }) {
             </h4>
             <ul className="space-y-3.5 text-sm font-semibold text-slate-200">
               <li>
-                <button onClick={() => handleScrollTo('smart-home')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/smart-home" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>Lighting Automation</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('smart-home')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/smart-home" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>Smart Motorized Curtains</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('smart-home')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/offerings" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>Yale & ABEZ Digital Locks</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('smart-home')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/smart-home" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>HVAC & AC Controllers</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button onClick={() => handleScrollTo('industrial')} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
+                <Link to="/industrial" onClick={scrollToTop} className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer">
                   <ChevronRight className={`w-4 h-4 text-[#00A3E8] ${lang === 'ar' ? 'rotate-180' : ''}`} />
                   <span>Industrial Control Rooms</span>
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -174,18 +165,26 @@ function Footer({ t, lang, onNavigateHome, onNavigateContact }) {
                 </div>
               </div>
 
-              {/* Address */}
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-800/90 border border-slate-700 flex items-center justify-center text-[#00A3E8] flex-shrink-0">
+              {/* Address (Clickable -> Opens Google Maps) */}
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=21.54225,39.30025"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group/address cursor-pointer"
+                title={lang === 'ar' ? 'فتح موقعنا على خرائط جوجل' : 'Open location in Google Maps'}
+              >
+                <div className="w-10 h-10 rounded-xl bg-slate-800/90 border border-slate-700 flex items-center justify-center text-[#00A3E8] group-hover/address:bg-[#00A3E8] group-hover/address:text-slate-950 group-hover/address:scale-105 transition-all flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-400 font-semibold block">{lang === 'ar' ? 'المقر الرئيسي' : 'Corporate Office'}</span>
-                  <span className="font-bold text-slate-200 block text-xs sm:text-sm leading-relaxed mt-0.5">
+                  <span className="text-xs text-slate-400 group-hover/address:text-[#00A3E8] transition-colors font-semibold block">
+                    {lang === 'ar' ? 'المقر الرئيسي' : 'Corporate Office'}
+                  </span>
+                  <span className="font-bold text-slate-200 group-hover/address:text-white transition-colors block text-xs sm:text-sm leading-relaxed mt-0.5">
                     Majid Noor near Baladia Camp, Wadi Mraykh, Jeddah, KSA 23254
                   </span>
                 </div>
-              </div>
+              </a>
 
             </div>
           </div>

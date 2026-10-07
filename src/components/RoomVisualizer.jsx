@@ -16,24 +16,43 @@ function RoomVisualizer({ t }) {
   const currentModule = t.visualizer.modules[activeTab];
 
   return (
-    <section id="smart-home" className="py-24 relative bg-slate-50 text-slate-900 border-b border-slate-200">
+    <section 
+      id="smart-home" 
+      className="py-24 relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
+    >
+      {/* Decorative Radiant Cyan & Sky Ambient Glows (Non-black, soft luxury feel) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00A3E8]/12 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 left-10 w-[500px] h-[350px] bg-sky-400/12 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 right-10 w-[450px] h-[300px] bg-cyan-300/15 blur-[120px] pointer-events-none rounded-full" />
+
+      {/* Subtle Geometric Background Watermark Grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#00A3E8 1px, transparent 1px)',
+          backgroundSize: '28px 28px'
+        }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A3E8]/10 text-[#00A3E8] font-bold text-xs uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
             <Zap className="w-3.5 h-3.5" />
             <span>{t.visualizer.tag}</span>
           </div>
+
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-4 tracking-tight">
             {t.visualizer.title}
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg font-medium">
+
+          <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed">
             {t.visualizer.subtitle}
           </p>
         </div>
 
-        {/* Tab Selector */}
+        {/* Floating Modern Tab Selector Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           {modules.map(({ key, icon: Icon }) => {
             const isActive = activeTab === key;
@@ -41,27 +60,30 @@ function RoomVisualizer({ t }) {
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`flex items-center gap-2.5 px-6 py-3.5 rounded-full font-bold text-sm transition-all cursor-pointer shadow-sm ${
+                className={`flex items-center gap-2.5 px-6 py-3.5 rounded-full font-bold text-sm transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-slate-900 text-white shadow-lg scale-105 border-2 border-[#00A3E8]'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300'
+                    ? 'bg-[#00A3E8] text-white font-black shadow-[0_8px_25px_rgba(0,163,232,0.4)] scale-105 border-2 border-[#00A3E8]'
+                    : 'bg-white/95 text-slate-700 hover:text-[#00A3E8] hover:bg-white border border-slate-200/90 hover:border-[#00A3E8]/40 shadow-sm backdrop-blur-sm'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-[#00A3E8]' : 'text-slate-500'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#00A3E8]'}`} />
                 <span>{t.visualizer.modules[key].title}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Clean Light Solution Card */}
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        {/* Clean Luxury Pearl-White Solution Card with Cyan Glow */}
+        <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-12 rounded-3xl border border-slate-200/90 shadow-[0_20px_50px_-10px_rgba(0,163,232,0.15),0_10px_30px_-5px_rgba(15,23,42,0.06)] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative overflow-hidden">
           
+          {/* Subtle Top Cyan Gradient Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent pointer-events-none" />
+
           {/* Left Description Column */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-8 bg-[#00A3E8] rounded-full"></div>
-              <h3 className="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
+              <div className="w-2 h-8 bg-[#00A3E8] rounded-full shadow-[0_0_12px_rgba(0,163,232,0.6)]"></div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
                 {currentModule.title}
               </h3>
             </div>
@@ -70,7 +92,7 @@ function RoomVisualizer({ t }) {
               {currentModule.desc}
             </p>
 
-            <div className="p-4 rounded-2xl bg-slate-100 border border-slate-200 mb-8 flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-50 via-sky-50/50 to-slate-50 border border-slate-200/90 mb-8 flex items-center gap-3 shadow-xs">
               <CheckCircle className="w-5 h-5 text-[#00A3E8] flex-shrink-0" />
               <span className="text-sm font-bold text-slate-800">{currentModule.stat}</span>
             </div>
@@ -80,8 +102,8 @@ function RoomVisualizer({ t }) {
               onClick={() => setIsOn(!isOn)}
               className={`flex items-center gap-3 px-6 py-3.5 rounded-full font-bold text-sm transition-all cursor-pointer shadow-md ${
                 isOn 
-                  ? 'bg-[#00A3E8] text-black shadow-[0_0_20px_rgba(0,163,232,0.4)]'
-                  : 'bg-slate-200 text-slate-700'
+                  ? 'bg-[#00A3E8] text-white hover:bg-cyan-500 font-extrabold shadow-[0_8px_25px_rgba(0,163,232,0.4)]'
+                  : 'bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200'
               }`}
             >
               <Power className="w-4 h-4" />
@@ -89,8 +111,8 @@ function RoomVisualizer({ t }) {
             </button>
           </div>
 
-          {/* Right Visualizer Room Simulator Box */}
-          <div className="relative h-80 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 p-6 flex flex-col justify-between overflow-hidden shadow-2xl text-white">
+          {/* Right Visualizer Room Simulator Box (Framed Smart Screen Display) */}
+          <div className="relative h-84 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 flex flex-col justify-between overflow-hidden shadow-2xl text-white border border-slate-800 ring-4 ring-slate-100/90">
             
             {/* Ambient Lighting Beam */}
             <div 
@@ -98,7 +120,7 @@ function RoomVisualizer({ t }) {
                 isOn ? 'opacity-100' : 'opacity-10'
               }`}
               style={{
-                background: 'radial-gradient(circle at 50% 30%, rgba(0,163,232,0.35) 0%, transparent 70%)'
+                background: 'radial-gradient(circle at 50% 30%, rgba(0,163,232,0.45) 0%, transparent 70%)'
               }}
             />
 
@@ -110,21 +132,21 @@ function RoomVisualizer({ t }) {
                   Villa Suite - Jeddah
                 </span>
               </div>
-              <span className="text-xs font-bold text-[#00A3E8] bg-[#00A3E8]/10 px-3 py-1 rounded-full border border-[#00A3E8]/30">
+              <span className="text-xs font-bold text-[#00A3E8] bg-[#00A3E8]/15 px-3 py-1 rounded-full border border-[#00A3E8]/35 shadow-xs">
                 Treco IoT Live
               </span>
             </div>
 
             {/* Central Icon */}
             <div className="my-auto text-center relative z-10">
-              <div className="inline-flex p-6 rounded-2xl bg-white/10 border border-white/20 mb-3 text-[#00A3E8] shadow-lg">
-                {activeTab === 'lighting' && <Lightbulb className="w-12 h-12 animate-pulse" />}
-                {activeTab === 'curtains' && <Blinds className="w-12 h-12" />}
+              <div className="inline-flex p-6 rounded-2xl bg-white/10 border border-white/20 mb-3 text-[#00A3E8] shadow-lg backdrop-blur-md">
+                {activeTab === 'lighting' && <Lightbulb className="w-12 h-12 animate-pulse text-[#00A3E8]" />}
+                {activeTab === 'curtains' && <Blinds className="w-12 h-12 text-[#00A3E8]" />}
                 {activeTab === 'locks' && <Lock className="w-12 h-12 text-emerald-400" />}
-                {activeTab === 'climate' && <Thermometer className="w-12 h-12" />}
-                {activeTab === 'audio' && <Volume2 className="w-12 h-12 animate-bounce" />}
+                {activeTab === 'climate' && <Thermometer className="w-12 h-12 text-sky-400" />}
+                {activeTab === 'audio' && <Volume2 className="w-12 h-12 animate-bounce text-[#00A3E8]" />}
               </div>
-              <h4 className="text-2xl font-bold">
+              <h4 className="text-2xl font-bold text-white drop-shadow-md">
                 {isOn ? `${currentModule.title}` : 'System Standby'}
               </h4>
             </div>
