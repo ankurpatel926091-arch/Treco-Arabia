@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Layers, CheckCircle2 } from 'lucide-react';
 import OfferingsSection from '../components/OfferingsSection';
-import StatsSection from '../components/StatsSection';
 import offeringsBg from '../assets/header_background_img/offerings.png';
 
 function OfferingsPage({ t, lang, onOpenQuote }) {
@@ -196,9 +195,6 @@ function OfferingsPage({ t, lang, onOpenQuote }) {
 
         </div>
       </section>
-
-      {/* Trust Track Record */}
-      <StatsSection t={t} />
 
       {/* Bottom CTA Section - Floating Card with Header Width & Clean Gap before Footer */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F0F7FF] to-white relative overflow-hidden">

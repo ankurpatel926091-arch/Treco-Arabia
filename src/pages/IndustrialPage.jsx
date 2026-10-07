@@ -5,7 +5,6 @@ import {
   Cog, Factory, CheckCircle2 
 } from 'lucide-react';
 import IndustrialSection from '../components/IndustrialSection';
-import StatsSection from '../components/StatsSection';
 import industrialBg from '../assets/header_background_img/industrial.png';
 
 function IndustrialPage({ t, lang, onOpenQuote }) {
@@ -163,9 +162,6 @@ function IndustrialPage({ t, lang, onOpenQuote }) {
 
         </div>
       </section>
-
-      {/* Industrial Track Record Numbers */}
-      <StatsSection t={t} />
 
       {/* Bottom CTA Section - Floating Card with Header Width & Clean Gap before Footer */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F0F7FF] to-white relative overflow-hidden">
