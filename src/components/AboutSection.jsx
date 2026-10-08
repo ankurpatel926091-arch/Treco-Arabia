@@ -70,7 +70,7 @@ function AboutSection({ lang, onOpenQuote }) {
   ];
 
   return (
-    <section id="about" className="py-24 sm:py-28 relative bg-gradient-to-b from-white via-[#F0F7FF] to-white text-slate-900 border-b border-slate-200 overflow-hidden">
+    <section id="about" className="py-12 sm:py-16 relative bg-gradient-to-b from-white via-[#F0F7FF] to-white text-slate-900 border-b border-slate-200 overflow-hidden">
       
       {/* Decorative Ambient Cyan Glows */}
       <div className="absolute top-20 left-10 w-[600px] h-[350px] bg-[#00A3E8]/10 blur-[140px] pointer-events-none rounded-full" />
@@ -88,7 +88,7 @@ function AboutSection({ lang, onOpenQuote }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Top Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{lang === 'ar' ? 'من نحن • نبذة عن تريكو العربية' : 'WHO WE ARE • ABOUT TRECO ARABIA'}</span>
@@ -108,7 +108,7 @@ function AboutSection({ lang, onOpenQuote }) {
         </div>
 
         {/* 4 Credibility Highlight Cards Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {highlights.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -224,7 +224,8 @@ function AboutSection({ lang, onOpenQuote }) {
                 <img 
                   src={smartHomeImg} 
                   alt="Smart Home Automation"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  style={{ filter: 'brightness(1.3) contrast(1.05)' }}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
                 />
                 
                 <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
@@ -276,7 +277,8 @@ function AboutSection({ lang, onOpenQuote }) {
                 <img 
                   src={industrialImg} 
                   alt="Industrial Plant Automation"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  style={{ filter: 'brightness(1.3) contrast(1.05)' }}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
                 />
                 
                 <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">

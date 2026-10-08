@@ -1,7 +1,9 @@
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Sparkles, CheckCircle2, Home, Wrench } from 'lucide-react';
-import defaultHeroVideo from '../assets/vdo/Smart_home_video_animation_sequence_20261006133731.mp4';
+import defaultHeroVideo from '../assets/vdo/Automation_vdo_header.mp4';
 
 function Hero({ t, lang, videoUrl }) {
   const activeVideo = videoUrl || defaultHeroVideo;

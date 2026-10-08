@@ -18,7 +18,7 @@ function RoomVisualizer({ t }) {
   return (
     <section 
       id="smart-home" 
-      className="py-24 relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
+      className="py-12 sm:py-16 relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
     >
       {/* Decorative Radiant Cyan & Sky Ambient Glows (Non-black, soft luxury feel) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00A3E8]/12 blur-[140px] pointer-events-none rounded-full" />
@@ -37,7 +37,7 @@ function RoomVisualizer({ t }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
             <Zap className="w-3.5 h-3.5" />
             <span>{t.visualizer.tag}</span>
@@ -53,7 +53,7 @@ function RoomVisualizer({ t }) {
         </div>
 
         {/* Floating Modern Tab Selector Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8 sm:mb-10">
           {modules.map(({ key, icon: Icon }) => {
             const isActive = activeTab === key;
             return (

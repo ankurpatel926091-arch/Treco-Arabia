@@ -8,14 +8,15 @@ import HomePage from './pages/HomePage';
 import SmartHomePage from './pages/SmartHomePage';
 import OfferingsPage from './pages/OfferingsPage';
 import IndustrialPage from './pages/IndustrialPage';
+import IndustrialProductPage from './pages/IndustrialProductPage';
 import ContactPage from './pages/ContactPage';
 
-// Auto scroll to top on page navigation
+// Auto scroll to top on page navigation (Instant, without smooth scroll animation)
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
@@ -54,6 +55,10 @@ function MainContent({ lang, setLang, t }) {
           <Route 
             path="/industrial" 
             element={<IndustrialPage t={t} lang={lang} onOpenQuote={handleGoToContact} />} 
+          />
+          <Route 
+            path="/industrial/:id" 
+            element={<IndustrialProductPage t={t} lang={lang} onOpenQuote={handleGoToContact} />} 
           />
           <Route 
             path="/contact" 

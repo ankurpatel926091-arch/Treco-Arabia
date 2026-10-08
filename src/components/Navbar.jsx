@@ -32,7 +32,7 @@ function Navbar({ lang, setLang, t }) {
   const handleNavigation = (path) => {
     setMobileMenu(false);
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const prevPathnameRef = useRef(location.pathname);
@@ -109,12 +109,16 @@ function Navbar({ lang, setLang, t }) {
           to="/" 
           onClick={() => {
             setMobileMenu(false);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
           }}
           className="flex items-center gap-3 group text-left cursor-pointer"
         >
-          <div className="w-10 h-10 rounded-xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 flex items-center justify-center text-[#00A3E8] group-hover:bg-[#00A3E8] group-hover:text-white transition-all">
-            <Cpu className="w-6 h-6 group-hover:rotate-180 transition-transform duration-700" />
+          <div className="w-11 h-11 rounded-xl bg-[#00A3E8]/10 border border-[#00A3E8]/30 p-1.5 flex items-center justify-center group-hover:bg-[#00A3E8]/20 transition-all shadow-xs">
+            <img 
+              src="/emblem.png" 
+              alt="Treco Arabia" 
+              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300" 
+            />
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-black tracking-wider text-slate-900 flex items-center gap-1">
@@ -132,7 +136,7 @@ function Navbar({ lang, setLang, t }) {
             <Link 
               key={path}
               to={path}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => window.scrollTo(0, 0)}
               className={navItemClass(path)}
             >
               {label}
@@ -146,24 +150,37 @@ function Navbar({ lang, setLang, t }) {
           {/* Language Switcher */}
           <button 
             onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-[#00A3E8] text-xs font-bold text-slate-700 transition-all cursor-pointer"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-full border border-slate-300 bg-slate-50 hover:border-[#00A3E8] hover:bg-white text-xs font-bold text-slate-700 transition-all cursor-pointer shadow-2xs"
           >
-            <Globe className="w-4 h-4 text-[#00A3E8]" />
+            <Globe className="w-3.5 h-3.5 text-[#00A3E8]" />
             <span>{t.nav.langName}</span>
           </button>
 
-          {/* Contact Us CTA Button */}
+          {/* Contact Us CTA Button - Modern Luxury Tech Pill with Live Indicator & Action Bubble */}
           <Link
             to="/contact"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`px-5 py-2.5 rounded-xl font-extrabold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+            onClick={() => window.scrollTo(0, 0)}
+            className={`group relative inline-flex items-center gap-2.5 ps-4 pe-1.5 py-1.5 rounded-full text-xs font-black transition-all duration-300 cursor-pointer shadow-sm hover:shadow-[0_8px_25px_rgba(0,163,232,0.25)] ${
               isContactPage 
-                ? 'bg-slate-900 text-white' 
-                : 'bg-[#00A3E8] hover:bg-cyan-500 text-white'
+                ? 'bg-slate-950 text-white border-2 border-[#00A3E8] shadow-[0_0_15px_rgba(0,163,232,0.3)]' 
+                : 'bg-slate-950 hover:bg-slate-900 text-white border border-slate-800 hover:border-[#00A3E8]/80'
             }`}
           >
-            <span>{t.nav.contact}</span>
-            <ChevronRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
+            {/* Live Online Pulse Indicator */}
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+
+            {/* Label */}
+            <span className="tracking-wide text-white group-hover:text-[#00A3E8] transition-colors">
+              {t.nav.contact}
+            </span>
+
+            {/* Cyan Action Bubble */}
+            <span className="w-7 h-7 rounded-full bg-[#00A3E8] group-hover:bg-cyan-300 text-slate-950 flex items-center justify-center font-black transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_12px_rgba(0,163,232,0.6)]">
+              <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-300 ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-0.5' : 'group-hover:translate-x-0.5'}`} />
+            </span>
           </Link>
         </div>
 
@@ -250,10 +267,18 @@ function Navbar({ lang, setLang, t }) {
 
               <button
                 onClick={() => handleNavigation('/contact')}
-                className="w-full py-3.5 rounded-xl bg-[#00A3E8] hover:bg-cyan-500 text-white font-extrabold text-sm text-center shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-slate-950 via-[#0A1426] to-slate-950 border border-slate-800 text-white font-extrabold text-sm shadow-lg flex items-center justify-between cursor-pointer group hover:border-[#00A3E8] transition-all"
               >
-                <span>{t.nav.contact}</span>
-                <ChevronRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="group-hover:text-[#00A3E8] transition-colors">{t.nav.contact}</span>
+                </div>
+                <div className="w-7 h-7 rounded-full bg-[#00A3E8] text-slate-950 flex items-center justify-center font-bold group-hover:scale-105 group-hover:bg-cyan-300 transition-all">
+                  <ChevronRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
+                </div>
               </button>
             </div>
 

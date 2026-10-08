@@ -5,7 +5,7 @@ function VoiceDemo({ t }) {
   const [activePreset, setActivePreset] = useState(0);
 
   return (
-    <section className="py-24 relative bg-gradient-to-b from-[#EBF5FC]/70 via-[#F0F7FF] to-white text-slate-900 border-b border-slate-200 overflow-hidden">
+    <section className="py-12 sm:py-16 relative bg-gradient-to-b from-[#EBF5FC]/70 via-[#F0F7FF] to-white text-slate-900 border-b border-slate-200 overflow-hidden">
       
       {/* Decorative Radiant Cyan & Sky Ambient Glows */}
       <div className="absolute top-10 right-10 w-[600px] h-[350px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
@@ -23,7 +23,7 @@ function VoiceDemo({ t }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Solution Card with Frosted Glass & Cyan Glow */}
-        <div className="bg-white/95 backdrop-blur-xl p-8 sm:p-14 rounded-3xl border border-slate-200/90 shadow-[0_20px_50px_-10px_rgba(0,163,232,0.15),0_10px_30px_-5px_rgba(15,23,42,0.06)] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
+        <div className="bg-white/95 backdrop-blur-xl p-6 sm:p-10 rounded-3xl border border-slate-200/90 shadow-[0_20px_50px_-10px_rgba(0,163,232,0.15),0_10px_30px_-5px_rgba(15,23,42,0.06)] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative overflow-hidden">
           
           {/* Subtle Top Cyan Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent pointer-events-none" />

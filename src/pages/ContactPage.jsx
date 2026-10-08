@@ -2,33 +2,32 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, MapPin, Sparkles, ExternalLink } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
+import contactBg from '../assets/header_background_img/contact.jpg';
 
 function ContactPage({ t, lang }) {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="pt-20 bg-white min-h-screen">
       
-      {/* Contact Page Hero Banner */}
-      <section className="relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white py-16 sm:py-20 border-b border-slate-200 overflow-hidden">
-        {/* Subtle dot pattern */}
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-[0.035]"
-          style={{
-            backgroundImage: `radial-gradient(#00A3E8 1px, transparent 1px)`,
-            backgroundSize: '28px 28px'
-          }}
+      {/* Contact Page Hero Banner with Generated Background Image */}
+      <section className="relative py-14 sm:py-16 bg-black text-white border-b border-slate-800 overflow-hidden">
+        {/* Background Image Layer */}
+        <img 
+          src={contactBg} 
+          alt="Contact & Engineering Consultation Center Background" 
+          className="absolute inset-0 w-full h-full object-cover object-center scale-100 sm:scale-105 opacity-85"
         />
-        {/* Decorative Ambient Cyan Glows */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-sky-400/10 blur-[130px] pointer-events-none rounded-full" />
+
+        {/* Balanced Subtle Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-slate-950/80 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold text-slate-300 uppercase tracking-widest mb-4 drop-shadow-md">
             <Link 
               to="/"
               className="hover:text-[#00A3E8] transition-colors cursor-pointer"
@@ -39,16 +38,16 @@ function ContactPage({ t, lang }) {
             <span className="text-[#00A3E8]">{t.nav.contact}</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-white/20 backdrop-blur-md text-[#00A3E8] font-bold text-xs uppercase tracking-wider mb-4 shadow-lg">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{lang === 'ar' ? 'تواصل مع فريق تريكو' : 'Get in Touch with Treco Engineers'}</span>
+            <span className="text-white">{lang === 'ar' ? 'تواصل مع فريق تريكو' : 'Get in Touch with Treco Engineers'}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4 max-w-4xl mx-auto leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
             {lang === 'ar' ? 'اتصل بنا واحصل على استشارة تقنية' : 'Contact Us & Request Technical Consultation'}
           </h1>
 
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="text-slate-100 text-xs sm:text-base max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
             {lang === 'ar' 
               ? 'فريقنا الهندسي في جدة جاهز للإجابة على جميع استفساراتك وتصميم الحل المناسب لمشروعك.' 
               : 'Our engineering team in Jeddah is ready to assist you with tailored smart home and industrial automation engineering.'}
@@ -61,7 +60,7 @@ function ContactPage({ t, lang }) {
       <ContactSection t={t} />
 
       {/* Interactive Google Maps Section */}
-      <section className="py-16 bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC]/60 to-white border-t border-slate-200 relative overflow-hidden">
+      <section className="py-10 sm:py-12 bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC]/60 to-white border-t border-slate-200 relative overflow-hidden">
         {/* Decorative Ambient Cyan Glows */}
         <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
         <div className="absolute bottom-10 right-10 w-[600px] h-[350px] bg-sky-400/10 blur-[130px] pointer-events-none rounded-full" />

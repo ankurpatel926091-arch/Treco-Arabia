@@ -209,7 +209,7 @@ function OfferingsSection({ lang, onOpenQuote }) {
     : devices.filter(d => d.cat === activeCategory);
 
   return (
-    <section id="offerings" className="py-24 relative bg-gradient-to-b from-white via-[#F0F7FF] to-[#EBF5FC]/70 text-slate-900 border-b border-slate-200 overflow-hidden">
+    <section id="offerings" className="py-12 sm:py-16 relative bg-gradient-to-b from-white via-[#F0F7FF] to-[#EBF5FC]/70 text-slate-900 border-b border-slate-200 overflow-hidden">
       
       {/* Decorative Ambient Cyan Glows */}
       <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
@@ -227,7 +227,7 @@ function OfferingsSection({ lang, onOpenQuote }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header with Title and 4 Category Filter Tabs */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
           
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
@@ -330,7 +330,7 @@ function OfferingsSection({ lang, onOpenQuote }) {
         </div>
 
         {/* Bottom Unified Platform Callout Card */}
-        <div className="mt-12 bg-white/95 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-[0_15px_35px_rgba(0,163,232,0.08)] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+        <div className="mt-8 sm:mt-10 bg-white/95 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-[0_15px_35px_rgba(0,163,232,0.08)] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           
           <div className="flex items-center gap-4 text-center md:text-left">

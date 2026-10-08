@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Layers, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
 import OfferingsSection from '../components/OfferingsSection';
 import offeringsBg from '../assets/header_background_img/offerings.png';
 
 function OfferingsPage({ t, lang, onOpenQuote }) {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   }, []);
 
   const solutions = [
@@ -65,15 +65,15 @@ function OfferingsPage({ t, lang, onOpenQuote }) {
       
       {/* Hero Banner */}
       <section className="relative py-16 sm:py-20 bg-black text-white border-b border-slate-800 overflow-hidden">
-        {/* Background Image Layer - Bright and clearly visible */}
+        {/* Background Image Layer */}
         <img 
           src={offeringsBg} 
           alt="Offerings & IoT Automation Background" 
           className="absolute inset-0 w-full h-full object-cover object-center scale-100 sm:scale-105 opacity-85"
         />
 
-        {/* Balanced Transparent Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/35 to-slate-950/90 pointer-events-none" />
+        {/* Balanced Subtle Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-slate-950/80 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
@@ -103,16 +103,10 @@ function OfferingsPage({ t, lang, onOpenQuote }) {
               : 'From lighting and HVAC climate control to biometric locks, motorized curtains, and smart gate systems — engineered with precision for Saudi Arabia.'}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3.5">
+          <div className="flex items-center justify-center">
             <Link
               to="/contact"
               className="px-7 py-3 sm:px-8 sm:py-3.5 rounded-xl bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(0,163,232,0.4)] transition-all cursor-pointer"
-            >
-              {lang === 'ar' ? 'اطلب عرض سعر مخصص' : 'Request Tailored Quote'}
-            </Link>
-            <Link
-              to="/contact"
-              className="px-7 py-3 sm:px-8 sm:py-3.5 rounded-xl bg-black/60 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all shadow-md backdrop-blur-sm"
             >
               {t.nav.contact}
             </Link>
@@ -125,14 +119,14 @@ function OfferingsPage({ t, lang, onOpenQuote }) {
       <OfferingsSection lang={lang} onOpenQuote={onOpenQuote} />
 
       {/* Categorized Detailed Solutions */}
-      <section className="py-24 relative bg-gradient-to-b from-white via-[#F0F7FF] to-white border-b border-slate-200 overflow-hidden">
+      <section className="py-12 sm:py-16 relative bg-gradient-to-b from-white via-[#F0F7FF] to-white border-b border-slate-200 overflow-hidden">
         {/* Decorative Ambient Cyan Glows */}
         <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />
         <div className="absolute bottom-10 right-10 w-[600px] h-[350px] bg-sky-400/10 blur-[130px] pointer-events-none rounded-full" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] font-extrabold text-xs uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
               <span>{lang === 'ar' ? 'حلول تفصيلية' : 'SPECIALIZED PACKAGES'}</span>
             </div>
@@ -197,43 +191,52 @@ function OfferingsPage({ t, lang, onOpenQuote }) {
       </section>
 
       {/* Bottom CTA Section - Floating Card with Header Width & Clean Gap before Footer */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F0F7FF] to-white relative overflow-hidden">
+      <section className="py-10 sm:py-14 bg-gradient-to-b from-white via-[#EBF5FC] to-white relative overflow-hidden">
         {/* Decorative Ambient Cyan Glows */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-[#00A3E8]/8 blur-[130px] pointer-events-none rounded-full" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-sky-400/8 blur-[130px] pointer-events-none rounded-full" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[550px] h-[350px] bg-[#00A3E8]/12 blur-[130px] pointer-events-none rounded-full" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[350px] bg-sky-400/12 blur-[130px] pointer-events-none rounded-full" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Floating Dark Gradient Card matching Header Container Width */}
-          <div className="bg-gradient-to-r from-slate-950 via-[#0A1426] to-slate-950 text-white rounded-3xl sm:rounded-[2.5rem] py-14 px-6 sm:px-12 md:py-16 md:px-16 border border-slate-800/90 shadow-[0_25px_60px_-15px_rgba(0,163,232,0.18),0_10px_30px_rgba(15,23,42,0.1)] relative overflow-hidden text-center group">
+          {/* Floating Premium Gradient Card with Radiant Tech Glows */}
+          <div className="bg-gradient-to-br from-[#061C3D] via-[#0A2E5C] to-[#030E1F] text-white rounded-3xl sm:rounded-[2.5rem] py-10 px-6 sm:px-10 md:py-12 md:px-14 border border-sky-400/35 shadow-[0_25px_65px_-12px_rgba(0,163,232,0.32),0_12px_35px_rgba(3,14,31,0.5)] relative overflow-hidden text-center group">
             
-            {/* Top Subtle Border Accent Shimmer */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+            {/* Top Luminous Cyan Shimmer Line */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
 
-            {/* Inner Radiant Cyan Glow */}
-            <div className="absolute top-0 right-1/4 w-[500px] h-full bg-[#00A3E8]/12 blur-[100px] pointer-events-none" />
+            {/* Bottom Subtle Accent Glow Line */}
+            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
 
-            <div className="max-w-2xl mx-auto relative z-10">
-              <h2 className="text-2xl sm:text-4xl font-black mb-4 tracking-tight leading-tight">
+            {/* Radiant Ambient Cyan Aurora Orbs */}
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-[#00A3E8]/30 via-cyan-400/12 to-transparent blur-[85px] pointer-events-none rounded-full" />
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/25 blur-[100px] pointer-events-none rounded-full" />
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#00A3E8]/20 blur-[100px] pointer-events-none rounded-full" />
+
+            {/* Subtle Tech Geometric Micro-Grid Pattern */}
+            <div 
+              className="absolute inset-0 opacity-[0.06] pointer-events-none"
+              style={{
+                backgroundImage: 'radial-gradient(#00A3E8 1.5px, transparent 1.5px)',
+                backgroundSize: '24px 24px'
+              }}
+            />
+
+            <div className="max-w-4xl mx-auto relative z-10">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 tracking-tight leading-tight sm:whitespace-nowrap text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">
                 {lang === 'ar' ? 'هل تحتاج إلى استشارة لحلول مشروعك؟' : 'Need a Custom Solution for Your Space?'}
               </h2>
-              <p className="text-slate-300 text-xs sm:text-base mb-8 leading-relaxed font-normal">
+              <p className="text-slate-200 text-xs sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
                 {lang === 'ar' 
                   ? 'فريقنا الهندسي جاهز لمعاينة موقعك وتقديم عرض أسعار ومخطط فني متكامل.' 
                   : 'Our engineers will review your architectural floor plan and advise on the most cost-effective hardware setup.'}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="flex items-center justify-center">
                 <Link
                   to="/contact"
-                  className="px-8 py-3.5 sm:py-4 rounded-xl bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(0,163,232,0.4)] transition-all cursor-pointer"
+                  className="px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#00A3E8] via-cyan-400 to-[#00A3E8] hover:from-cyan-300 hover:to-sky-300 text-slate-950 font-black text-xs sm:text-sm shadow-[0_0_28px_rgba(0,163,232,0.55)] hover:shadow-[0_0_38px_rgba(0,163,232,0.8)] hover:scale-105 transition-all cursor-pointer flex items-center gap-2 group/btn"
                 >
-                  {lang === 'ar' ? 'اطلب عرض سعر فوري' : 'Get Instant Quote'}
-                </Link>
-                <Link
-                  to="/contact"
-                  className="px-8 py-3.5 sm:py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all backdrop-blur-sm"
-                >
-                  {t.nav.contact}
+                  <span>{t.nav.contact}</span>
+                  <ArrowRight className={`w-4 h-4 group-hover/btn:translate-x-1 transition-transform ${lang === 'ar' ? 'rotate-180 group-hover/btn:-translate-x-1' : ''}`} />
                 </Link>
               </div>
             </div>
