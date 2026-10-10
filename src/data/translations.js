@@ -11,18 +11,176 @@ export const translations = {
       langName: "العربية"
     },
     hero: {
-      badge: "Saudi Arabia's Leading Automation Partner",
-      titleLine1: "Your Search for the Perfect",
-      titleStart: "Your Search for the Perfect",
-      titleHighlight: "Home & Industrial Automation",
-      titleLine2: "Company Ends Here!",
-      titleEnd: "Company Ends Here!",
-      subtitle: "Connecting residential lifestyles and industrial operations with smart IoT & engineering solutions across Saudi Arabia.",
-      btnPrimary: "Home Automation",
-      btnSecondary: "Industrial Automation",
+      eyebrow: "INDUSTRIAL AUTOMATION & SMART TECHNOLOGY",
+      badge: "Saudi Arabia's Leading Industrial Automation Partner",
+      titleLine1: "Engineering the Future",
+      titleStart: "Engineering the Future",
+      titleHighlight: "of Industry",
+      titleLine2: "in Saudi Arabia",
+      titleEnd: "in Saudi Arabia",
+      headline: "Powering Saudi Arabia's Industrial Future",
+      supportingText: "Intelligent automation solutions for modern industrial environments.",
+      subtitle: "Intelligent automation solutions for modern industrial environments across Saudi Arabia.",
+      btnPrimary: "Explore Industrial Solutions",
+      btnSecondary: "Contact Our Team",
       statProjects: "Projects Completed",
       statClients: "Satisfied Clients",
       statSupport: "KSA Expert Support"
+    },
+    industrialHome: {
+      hero: {
+        eyebrow: "INDUSTRIAL AUTOMATION & SMART TECHNOLOGY",
+        headline: "Powering Saudi Arabia's Industrial Future",
+        supportingText: "Intelligent automation solutions for modern industrial environments.",
+        primaryCta: "Explore Industrial Solutions",
+        secondaryCta: "Contact Our Team",
+        stats: [
+          { value: "10+", label: "Years in Saudi Arabia", sub: "Established industrial presence" },
+          { value: "500+", label: "Delivered Systems", sub: "Plants & critical facilities" },
+          { value: "100%", label: "SASO & IEC Compliant", sub: "Certified engineering standards" },
+          { value: "24/7", label: "Local Support", sub: "Certified on-site engineers in Jeddah" }
+        ]
+      },
+      solutions: {
+        eyebrow: "CORE SPECIALIZATIONS",
+        title: "Intelligent Industrial Systems",
+        subtitle: "Precision hardware, distributed control systems, and automated infrastructure engineered for Saudi manufacturing.",
+        viewAll: "Explore All Industrial Solutions",
+        items: [
+          {
+            id: "turnkey-automation",
+            badge: "FLAGSHIP CAPABILITY",
+            title: "Industrial Automation & SCADA",
+            // desc: "End-to-end process control, robotic line synchronization, and real-time plant telemetry engineered for continuous operation.",
+            link: "/industrial",
+            linkText: "Explore Systems"
+          },
+          {
+            id: "control-rooms",
+            badge: "CONTROL & POWER",
+            title: "Electrical Control Rooms & MCC Panels",
+            // desc: "Custom low & medium voltage motor control centers, PLC integration, and centralized plant management.",
+            link: "/industrial/control-room",
+            linkText: "View Control Systems"
+          },
+          {
+            id: "drives-machinery",
+            badge: "HEAVY EQUIPMENT",
+            title: "Industrial Drives, Pumps & Fluidics",
+            // desc: "High-torque continuous motors, precision hydraulic valves, and heavy-duty fluid transfer systems.",
+            link: "/industrial/motors",
+            linkText: "View Equipment"
+          },
+          {
+            id: "infrastructure",
+            badge: "FACILITY CONTROL",
+            title: "Intelligent Facilities & Energy Management",
+            // desc: "Automated building management, environmental zoning, and predictive energy optimization for commercial facilities.",
+            link: "/offerings",
+            linkText: "View Facility Systems"
+          }
+        ]
+      },
+      showcase: {
+        eyebrow: "ENGINEERED HARDWARE",
+        title: "Precision Equipment & Plant Systems",
+        subtitle: "High-performance components and engineered assemblies operating in demanding Saudi industrial environments.",
+        filterAll: "All Systems",
+        filterControls: "Control & Power",
+        filterMechanical: "Motors & Drives",
+        filterFluidics: "Fluidics & Thermal"
+      },
+      standards: {
+        eyebrow: "ENGINEERING EXCELLENCE",
+        title: "Certified for Saudi Industrial Standards",
+        subtitle: "Every system is engineered to withstand extreme ambient temperatures and fully complies with KSA regulations.",
+        items: [
+          { 
+            code: "SASO", 
+            title: "SASO Certified Enclosures", 
+            desc: "100% SASO compliant desert-rated electrical enclosures and MCC switchgear.",
+            spec: "IP55 / IP65 • Climate Rated"
+          },
+          { 
+            code: "IEC", 
+            title: "IEC 61131-3 PLC Controllers", 
+            desc: "International standard programmable automation controllers and deterministic robotics.",
+            spec: "Deterministic I/O • Fieldbus"
+          },
+          { 
+            code: "ISO", 
+            title: "ISO 9001:2015 Quality Precision", 
+            desc: "Certified precision metrology, automated CMM inspection, and robotic quality control.",
+            spec: "Zero-Defect Audit • Calibrated"
+          },
+          { 
+            code: "KSA", 
+            title: "Vision 2030 Smart Plants", 
+            desc: "Aligned with the National Industrial Development & Logistics Program (NIDLP).",
+            spec: "Industry 4.0 • Saudi Engineered"
+          },
+          { 
+            code: "SCADA", 
+            title: "Mission-Critical SCADA Centers", 
+            desc: "Distributed control systems with redundant real-time plant telemetry and telemetry walls.",
+            spec: "24/7 Redundant • Real-Time Telemetry"
+          }
+        ]
+      },
+      smartHomeSecondary: {
+        eyebrow: "RESIDENTIAL DIVISION",
+        title: "Architectural Smart Living for Luxury Residences",
+        desc: "Unified ambient lighting, climate regulation, biometric security, and motorized shading engineered for Saudi villas and private estates.",
+        cta: "Discover Smart Home Solutions"
+      },
+      faqAndCertificate: {
+        faqEyebrow: "COMMON QUESTIONS",
+        faqTitle: "Frequently Asked Questions",
+        faqSubtitle: "Clear answers about Treco Arabia's industrial automation, smart control systems, and engineering services.",
+        faqs: [
+          {
+            q: "What smart home and industrial automation solutions does TRECO provide?",
+            a: "TRECO provides comprehensive end-to-end automation, including industrial SCADA and distributed control systems, motor control centers (MCC), building management systems (BMS), and luxury architectural smart living solutions engineered specifically for the Saudi market."
+          },
+          {
+            q: "Can TRECO automate existing homes and facilities without major rewiring?",
+            a: "Yes, TRECO solutions can work with both new and existing facilities. Products like smart modules, retrofittable controllers, and wireless touch switches can be integrated with minimal structural changes, depending on wiring condition and load requirements."
+          },
+          {
+            q: "Are TRECO smart devices compatible with Alexa and Google Assistant?",
+            a: "Yes, TRECO smart devices and control hubs offer seamless integration with leading voice ecosystems including Amazon Alexa, Google Assistant, Apple HomeKit, and centralized touch panels."
+          },
+          {
+            q: "How does TRECO improve facility safety and energy efficiency?",
+            a: "Through intelligent load scheduling, sensor-driven climate and lighting zoning, surge-protected circuits, biometric access security, and real-time power telemetry that can reduce energy consumption by up to 35%."
+          },
+          {
+            q: "Does TRECO provide automation for offices, hotels, and industrial facilities?",
+            a: "Yes, TRECO delivers enterprise-grade automation for commercial complexes, hospitality venues, healthcare facilities, and demanding industrial manufacturing plants across Saudi Arabia."
+          }
+        ],
+        certEyebrow: "QUALITY ASSURANCE & STANDARDS",
+        certTitle: "ISO 9001:2015 Certification",
+        certSubtitle: "Certified under ISO 9001:2015 ensuring world-class quality management standards in manufacturing and automation.",
+        certDesc: "Continuous improvement and high-quality processes for superior customer satisfaction, product longevity, and operational safety.",
+        certBadges: [
+          "IAF & EGAC Accredited",
+          "Certificate No: E20260244809",
+          "Audited by Royal Assessments",
+          "Saudi SASO & IEC Compatible"
+        ],
+        certScopeTitle: "Certified Scope of Activities:",
+        certScopeText: "Manufacturing, design & development of audio-video, IoT automation products, touch switches, and intelligent modular controls.",
+        certBtnEnlarge: "View Certificate",
+        certBtnClose: "Close Preview"
+      },
+      ctaBanner: {
+        eyebrow: "KSA INDUSTRIAL TRANSFORMATION",
+        title: "Ready to Upgrade Your Industrial Operations?",
+        desc: "Consult our certified engineers in Jeddah for custom industrial automation, control panels, and plant modernization.",
+        primaryBtn: "Request Technical Consultation",
+        secondaryBtn: "Call Jeddah Office"
+      }
     },
     visualizer: {
       tag: "INTERACTIVE DEMO",
@@ -123,18 +281,176 @@ export const translations = {
       langName: "English"
     },
     hero: {
-      badge: "رائد حلول الأتمتة بالمملكة العربية السعودية",
-      titleLine1: "بحثك عن الشركة المثالية",
-      titleStart: "بحثك عن الشركة المثالية",
-      titleHighlight: "لأتمتة المنازل والصناعة",
-      titleLine2: "ينتهي هنا!",
-      titleEnd: "ينتهي هنا!",
-      subtitle: "حلول تقنية متكاملة لربط أسلوب الحياة العصري والعمليات الصناعية بحلول إنترنت الأشياء في السعودية.",
-      btnPrimary: "أتمتة المنازل",
-      btnSecondary: "الأتمتة الصناعية",
+      eyebrow: "الأتمتة الصناعية والتقنيات الذكية",
+      badge: "رائد حلول الأتمتة الصناعية بالمملكة العربية السعودية",
+      titleLine1: "هندسة مستقبل",
+      titleStart: "هندسة مستقبل",
+      titleHighlight: "الصناعة والتحكم",
+      titleLine2: "بالمملكة العربية السعودية",
+      titleEnd: "بالمملكة العربية السعودية",
+      headline: "هندسة مستقبل الصناعة.",
+      supportingText: "حلول أتمتة وتحكم ذكية للبيئات والمصانع الحديثة في المملكة.",
+      subtitle: "حلول تقنية وهندسية متكاملة للتحكم الصناعي وأتمتة المنشآت الحديثة بالمملكة العربية السعودية.",
+      btnPrimary: "استكشف الحلول الصناعية",
+      btnSecondary: "تواصل مع فريقنا",
       statProjects: "مشروع مكتمل",
       statClients: "عميل سعيد",
       statSupport: "دعم فني متخصص"
+    },
+    industrialHome: {
+      hero: {
+        eyebrow: "الأتمتة الصناعية والتقنيات الذكية",
+        headline: "هندسة مستقبل الصناعة.",
+        supportingText: "حلول أتمتة وتحكم ذكية للبيئات والمصانع الحديثة في المملكة.",
+        primaryCta: "استكشف الحلول الصناعية",
+        secondaryCta: "تواصل مع فريقنا",
+        stats: [
+          { value: "١٠+", label: "سنوات في المملكة", sub: "حضور صناعي موثوق" },
+          { value: "٥٠٠+", label: "منظومة منجزة", sub: "مصانع ومنشآت حيوية" },
+          { value: "٪١٠٠", label: "مطابق لـ SASO و IEC", sub: "معايير هندسية معتمدة" },
+          { value: "٢٤/٧", label: "دعم فني بجدة", sub: "مهندسون ميدانيون معتمدون" }
+        ]
+      },
+      solutions: {
+        eyebrow: "التخصصات الرئيسية",
+        title: "المنظومات الصناعية الذكية",
+        subtitle: "معدات فائقة الدقة، أنظمة تحكم موزع، وبنية تحتية مؤتمتة صُممت خصيصاً للصناعة السعودية.",
+        viewAll: "عرض كافة الحلول الصناعية",
+        items: [
+          {
+            id: "turnkey-automation",
+            badge: "القدرة الرئيسية",
+            title: "الأتمتة الصناعية وأنظمة SCADA",
+            desc: "تحكم متكامل بالعمليات الإنتاجية، مزامنة الخطوط الروبوتية، ومراقبة فورية للمصانع مصممة للعمل الشاق المستمر.",
+            link: "/industrial",
+            linkText: "استكشف المنظومات"
+          },
+          {
+            id: "control-rooms",
+            badge: "التحكم والطاقة",
+            title: "غرف التحكم ولوحات MCC الكهربائية",
+            desc: "لوحات تحكم بالمحركات ذات الجهد المنخفض والمتوسط، برمجة وحدات PLC، وإدارة مركزية متقدمة للمنشآت.",
+            link: "/industrial/control-room",
+            linkText: "استعراض أنظمة التحكم"
+          },
+          {
+            id: "drives-machinery",
+            badge: "المعدات الثقيلة",
+            title: "المحركات الصناعية والمضخات ومسارات السوائل",
+            desc: "محركات كهربائية عالية العزم للتشغيل المستمر، مضخات هيدروليكية، وصمامات تحكم آلية فائقة الدقة.",
+            link: "/industrial/motors",
+            linkText: "استعراض المعدات"
+          },
+          {
+            id: "infrastructure",
+            badge: "إدارة المرافق",
+            title: "المنشآت الذكية وإدارة استهلاك الطاقة",
+            desc: "أتمتة إدارة المباني، ضبط التكييف والمناخ، وتحسين ذكي لاستهلاك الطاقة للمجمعات والمرافق التجارية.",
+            link: "/offerings",
+            linkText: "استعراض أنظمة المرافق"
+          }
+        ]
+      },
+      showcase: {
+        eyebrow: "المعدات والمنظومات الهندسية",
+        title: "معدات صناعية وحلول هندسية متقدمة",
+        subtitle: "مكونات أصلية ووحدات مجمعة هندسياً تعمل بكفاءة في أصعب الظروف الصناعية بالمملكة.",
+        filterAll: "كافة المنظومات",
+        filterControls: "التحكم والطاقة",
+        filterMechanical: "المحركات والنواقل",
+        filterFluidics: "السوائل والحرارة"
+      },
+      standards: {
+        eyebrow: "التميز الهندسي",
+        title: "معتمدة للمواصفات والمقاييس السعودية",
+        subtitle: "تُصمم جميع المنظومات لتحمل درجات الحرارة المرتفعة ومطابقة اللوائح الفنية المعتمدة بالمملكة.",
+        items: [
+          { 
+            code: "SASO", 
+            title: "المواصفات القياسية السعودية (SASO)", 
+            desc: "لوحات كهربائية ومراكز تحكم MCC مطابقة لمواصفات SASO ومقاومة للمناخ الصحراوي.",
+            spec: "عزل IP55 / IP65 • معتمد مناخياً"
+          },
+          { 
+            code: "IEC", 
+            title: "معايير التحكم الصناعي IEC 61131-3", 
+            desc: "وحدات تحكم منطقية قابلة للبرمجة (PLC) وبرمجيات أتمتة صناعية بمعايير دولية.",
+            spec: "إشارات رقمية دقيقة • بروتوكول Fieldbus"
+          },
+          { 
+            code: "ISO", 
+            title: "إدارة الجودة الشاملة ISO 9001:2015", 
+            desc: "فحص قياسي متقدم، قياس دقيق ثلاثي الأبعاد، وضمان الجودة في كافة مراحل التنفيذ.",
+            spec: "تدقيق معتمد • قياس ثلاثي الأبعاد CMM"
+          },
+          { 
+            code: "رؤية 2030", 
+            title: "مصانع المستقبل - رؤية المملكة 2030", 
+            desc: "أتمتة خطوط الإنتاج والتقنيات الروبوتية دعماً لبرنامج تطوير الصناعة الوطنية (NIDLP).",
+            spec: "الثورة الصناعية 4.0 • هندسة وطنية"
+          },
+          { 
+            code: "SCADA", 
+            title: "مراكز التحكم الإشرافي والمراقبة SCADA", 
+            desc: "أنظمة مراقبة وتحكم إشرافي موزعة مع شاشات مؤشرات فورية لإدارة المصانع والمنشآت.",
+            spec: "تشغيل متواصل 24/7 • مراقبة فورية"
+          }
+        ]
+      },
+      smartHomeSecondary: {
+        eyebrow: "القطاع السكني",
+        title: "أنظمة الحياة الذكية للفلل والمساكن الفاخرة",
+        desc: "حلول متكاملة للإضاءة المحيطية، التحكم الذكي بالتكييف، الأقفال البيومترية، والستائر الكهربائية المصممة للقصور والفلل السعودية.",
+        cta: "استكشف حلول المنازل الذكية"
+      },
+      faqAndCertificate: {
+        faqEyebrow: "الأسئلة الأكثر تكراراً",
+        faqTitle: "الأسئلة الشائعة",
+        faqSubtitle: "إجابات واضحة وشاملة حول حلول الأتمتة الصناعية والمباني الذكية وخدماتنا الهندسية في المملكة.",
+        faqs: [
+          {
+            q: "ما هي حلول الأتمتة والمنازل الذكية التي تقدمها شركة تريكو؟",
+            a: "تقدم تريكو حلول أتمتة شاملة ومتكاملة تشمل أنظمة التحكم الإشرافي SCADA، لوحات تحكم المحركات MCC، أنظمة إدارة المباني BMS، بالإضافة إلى حلول المنازل والقصور الذكية المصممة خصيصاً للمملكة."
+          },
+          {
+            q: "هل يمكن لتريكو أتمتة المنازل والمنشآت القائمة دون إعادة تمديد الأسلاك؟",
+            a: "نعم، تعمل حلول تريكو مع المباني الجديدة والقائمة على حد سواء. يمكن دمج الوحدات الذكية والمفاتيح اللمسية والأنظمة اللاسلكية بأقل تعديل ممكن وفقاً لحالة التوصيل والأحمال المطلوبة."
+          },
+          {
+            q: "هل تتوافق أجهزة تريكو الذكية مع أنظمة Alexa و Google Assistant؟",
+            a: "نعم، تدعم أجهزة تريكو ومحاور التحكم التكامل السلس مع أبرز المساعدات الصوتية بما فيها Amazon Alexa و Google Assistant و Apple HomeKit وشاشات اللمس المركزية."
+          },
+          {
+            q: "كيف تساهم تريكو في تعزيز الأمان وكفاءة استهلاك الطاقة؟",
+            a: "من خلال الجدولة الذكية للأحمال، والضبط المستمر للتكييف والإضاءة عبر المستشعرات، والأقفال البيومترية، وحماية الدوائر الكهربائية، مما يوفر حتى ٣٥٪ من استهلاك الطاقة."
+          },
+          {
+            q: "هل تقدم تريكو حلول الأتمتة للمكاتب والفنادق والمنشآت الصناعية الكبرى؟",
+            a: "نعم، توفر تريكو أنظمة أتمتة متطورة للمجمعات التجارية، الفنادق، المستشفيات، والمصانع والمنشآت الصناعية في مختلف مدن المملكة مع دعم فني متواصل."
+          }
+        ],
+        certEyebrow: "ضمان الجودة والمعايير المعتمدة",
+        certTitle: "شهادة الآيزو ISO 9001:2015",
+        certSubtitle: "معتمدة بموجب المعيار الدولي ISO 9001:2015 لضمان أعلى معايير إدارة الجودة في التصنيع والأتمتة.",
+        certDesc: "التزام مستمر بالتحسين ومراقبة الجودة الفائقة لضمان أعلى مستويات رضا العملاء وسلامة التشغيل في المملكة العربية السعودية.",
+        certBadges: [
+          "معتمدة من IAF و EGAC دولياً",
+          "رقم الشهادة: E20260244809",
+          "تقييم معتمد من Royal Assessments",
+          "مطابقة لمواصفات SASO و IEC"
+        ],
+        certScopeTitle: "مجال الأنشطة المعتمد:",
+        certScopeText: "تصنيع وتصميم وتطوير منتجات إنترنت الأشياء والأتمتة، مفاتيح اللمس الذكية، ولوحات التحكم المعيارية.",
+        certBtnEnlarge: "معاينة الشهادة الرسمية",
+        certBtnClose: "إغلاق المعاينة"
+      },
+      ctaBanner: {
+        eyebrow: "التحول الصناعي السعودي",
+        title: "هل أنت جاهز لتطوير منشأتك الصناعية؟",
+        desc: "تواصل مع مهندسينا المعتمدين بجدة للحصول على دراسة فنية مخصصة للأتمتة الصناعية وتحديث خطوط الإنتاج.",
+        primaryBtn: "طلب استشارة هندسية",
+        secondaryBtn: "الاتصال بمكتب جدة الهندسي"
+      }
     },
     visualizer: {
       tag: "العرض التفاعلي",

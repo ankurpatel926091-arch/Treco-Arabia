@@ -57,7 +57,7 @@ function ContactPage({ t, lang }) {
       </section>
 
       {/* Main Contact Form & Location Details */}
-      <ContactSection t={t} />
+      <ContactSection t={t} lang={lang} />
 
       {/* Interactive Google Maps Section */}
       <section className="py-10 sm:py-12 bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC]/60 to-white border-t border-slate-200 relative overflow-hidden">

@@ -19,25 +19,21 @@ function Footer({ t, lang }) {
               onClick={scrollToTop}
               className="flex items-center gap-3.5 cursor-pointer text-left group"
             >
-              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#00A3E8] p-2 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-all flex-shrink-0">
-                <img 
-                  src="/emblem-white.png" 
-                  alt="Treco Arabia" 
-                  className="w-full h-full object-contain" 
+              <div className="bg-white rounded-2xl p-3 px-5 shadow-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-all">
+                <img
+                  src="/treco-logo.png"
+                  alt="Treco Arabia"
+                  className="h-16 sm:h-16 w-48 sm:w-60 object-contain"
                 />
               </div>
-              <span className="text-2xl sm:text-3xl font-black text-white tracking-wider">
-                TRECO <span className="text-[#00A3E8]">ARABIA</span>
-              </span>
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed font-normal">
               {lang === "ar"
-                ? "تريكو العربية هي الشركة الرائدة في حلول أتمتة المنازل الذكية والأتمتة الصناعية في المملكة العربية السعودية."
-                : "Treco Arabia is a leading Smart Home and Industrial Automation company offering turnkey residential, commercial, and industrial solutions across Saudi Arabia."}
+                ? "تريكو العربية شركة رائدة في حلول أتمتة المنازل الذكية والأتمتة الصناعية بالمملكة."
+                : "Treco Arabia is a leading Smart Home & Industrial Automation company in Saudi Arabia."}
             </p>
-
-            <p className="text-sm font-bold text-white pt-1">
+            <p className="text-sm font-bold text-white pt-.5">
               {lang === "ar"
                 ? "مهندسون وفنيون معتمدون في الأتمتة"
                 : "Certified Automation Engineers & Technicians"}
