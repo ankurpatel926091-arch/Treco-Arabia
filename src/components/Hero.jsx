@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Sparkles, CheckCircle2, Home, Wrench } from 'lucide-react';
-import defaultHeroVideo from '../assets/vdo/Automation_vdo_header.mp4';
+import defaultHeroVideo from '../assets/vdo/treco_hero_showcase.mp4';
+import heroPoster from '../assets/header_background_img/hero_showcase_poster.jpg';
 
 function Hero({ t, lang, videoUrl }) {
   const activeVideo = videoUrl || defaultHeroVideo;
@@ -15,6 +16,7 @@ function Hero({ t, lang, videoUrl }) {
         muted
         loop
         playsInline
+        poster={heroPoster}
         className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-90 scale-100 sm:scale-105"
       >
         <source src={activeVideo} type="video/mp4" />

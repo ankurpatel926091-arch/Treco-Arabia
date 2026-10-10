@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import AboutSection from '../components/AboutSection';
 import IndustrialSolutionsGrid from '../components/home/IndustrialSolutionsGrid';
 import IndustrialShowcase from '../components/home/IndustrialShowcase';
 import EngineeringStandards from '../components/home/EngineeringStandards';
@@ -13,7 +14,10 @@ function HomePage({ t, lang, onOpenQuote }) {
       {/* 1. Cinematic Industrial Hero Section */}
       <Hero t={t} lang={lang} />
 
-      {/* 2. Visual Industrial Solutions Section (Asymmetric Editorial Grid) */}
+      {/* 2. Visual & Minimalistic About Section */}
+      <AboutSection lang={lang} onOpenQuote={onOpenQuote} />
+
+      {/* 3. Visual Industrial Solutions Section (Asymmetric Editorial Grid) */}
       <IndustrialSolutionsGrid t={t} lang={lang} />
 
       {/* 3. Industrial Showcase & Equipment Gallery */}
