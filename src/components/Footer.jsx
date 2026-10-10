@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Cpu, Phone, Mail, MapPin, ChevronRight } from "lucide-react";
+import ccLogo from "../assets/cc-logo.png";
 
 function Footer({ t, lang }) {
   const scrollToTop = () => {
@@ -347,7 +348,7 @@ function Footer({ t, lang }) {
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <img
-                src="/src/assets/cc-logo.png"
+                src={ccLogo}
                 alt="Code Crafter"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
