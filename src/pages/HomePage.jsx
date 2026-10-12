@@ -10,7 +10,7 @@ import IndustrialCtaBanner from '../components/home/IndustrialCtaBanner';
 
 function HomePage({ t, lang, onOpenQuote }) {
   return (
-    <div className="bg-slate-950 min-h-screen">
+    <div className="bg-[#080D1A] min-h-screen">
       {/* 1. Cinematic Industrial Hero Section */}
       <Hero t={t} lang={lang} />
 
