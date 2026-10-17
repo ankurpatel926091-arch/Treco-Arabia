@@ -5,27 +5,28 @@ export const translations = {
       smartHome: "Smart Home",
       offerings: "What We Offer",
       industrial: "Industrial Automation",
+      gallery: "Gallery",
       about: "Who We Are",
       contact: "Contact Us",
       getQuote: "Request a Quote",
       langName: "العربية"
     },
     hero: {
-      eyebrow: "INDUSTRIAL AUTOMATION & SMART TECHNOLOGY",
-      badge: "Saudi Arabia's Leading Industrial Automation Partner",
-      titleLine1: "Engineering the Future",
-      titleStart: "Engineering the Future",
-      titleHighlight: "of Industry",
+      eyebrow: "SMART LIVING & INDUSTRIAL AUTOMATION",
+      badge: "Saudi Arabia's Leading Automation Partner",
+      titleLine1: "Engineering the Future with",
+      titleStart: "Engineering the Future with",
+      titleHighlight: "Treco Arabia",
       titleLine2: "in Saudi Arabia",
       titleEnd: "in Saudi Arabia",
-      headline: "Powering Saudi Arabia's Industrial Future",
-      supportingText: "Intelligent automation solutions for modern industrial environments.",
-      subtitle: "Intelligent automation solutions for modern industrial environments across Saudi Arabia.",
-      btnPrimary: "Explore Industrial Solutions",
-      btnSecondary: "Contact Our Team",
-      statProjects: "Projects Completed",
+      headline: "Engineering the Future with Treco Arabia",
+      supportingText: "Intelligent smart living and industrial systems.",
+      subtitle: "Next-gen smart living and industrial automation engineered across Saudi Arabia.",
+      btnPrimary: "Smart Home",
+      btnSecondary: "Industrial Systems",
+      statProjects: "Projects Delivered",
       statClients: "Satisfied Clients",
-      statSupport: "KSA Expert Support"
+      statSupport: "Local Jeddah Support"
     },
     industrialHome: {
       hero: {
@@ -175,11 +176,11 @@ export const translations = {
         certBtnClose: "Close Preview"
       },
       ctaBanner: {
-        eyebrow: "KSA INDUSTRIAL TRANSFORMATION",
+        eyebrow: "GET IN TOUCH WITH TRECO ARABIA",
         title: "Ready to Upgrade Your Industrial Operations?",
-        desc: "Consult our certified engineers in Jeddah for custom industrial automation, control panels, and plant modernization.",
-        primaryBtn: "Request Technical Consultation",
-        secondaryBtn: "Call Jeddah Office"
+        desc: "Contact our certified automation specialists in Jeddah for site inspection, control panel design, PLC programming, and modernization plans.",
+        primaryBtn: "Request Free Quote",
+        secondaryBtn: "Call +966 50 076 1791"
       }
     },
     visualizer: {
@@ -275,27 +276,28 @@ export const translations = {
       smartHome: "المنزل الذكي",
       offerings: "خدماتنا",
       industrial: "الأتمتة الصناعية",
+      gallery: "معرض الصور",
       about: "من نحن",
       contact: "اتصل بنا",
       getQuote: "طلب عرض سعر",
       langName: "English"
     },
     hero: {
-      eyebrow: "الأتمتة الصناعية والتقنيات الذكية",
-      badge: "رائد حلول الأتمتة الصناعية بالمملكة العربية السعودية",
-      titleLine1: "هندسة مستقبل",
-      titleStart: "هندسة مستقبل",
-      titleHighlight: "الصناعة والتحكم",
-      titleLine2: "بالمملكة العربية السعودية",
-      titleEnd: "بالمملكة العربية السعودية",
-      headline: "هندسة مستقبل الصناعة.",
-      supportingText: "حلول أتمتة وتحكم ذكية للبيئات والمصانع الحديثة في المملكة.",
-      subtitle: "حلول تقنية وهندسية متكاملة للتحكم الصناعي وأتمتة المنشآت الحديثة بالمملكة العربية السعودية.",
-      btnPrimary: "استكشف الحلول الصناعية",
-      btnSecondary: "تواصل مع فريقنا",
-      statProjects: "مشروع مكتمل",
-      statClients: "عميل سعيد",
-      statSupport: "دعم فني متخصص"
+      eyebrow: "المنازل الذكية والأتمتة الصناعية",
+      badge: "شريك الأتمتة الرائد بالمملكة العربية السعودية",
+      titleLine1: "هندسة المستقبل مع",
+      titleStart: "هندسة المستقبل مع",
+      titleHighlight: "تريكو العربية",
+      titleLine2: "في المملكة العربية السعودية",
+      titleEnd: "في المملكة العربية السعودية",
+      headline: "هندسة المستقبل مع تريكو العربية",
+      supportingText: "حلول المنازل الذكية والأنظمة الصناعية بالمملكة.",
+      subtitle: "منظومات ذكية وصناعية متطورة صُممت خصيصاً للمملكة العربية السعودية.",
+      btnPrimary: "المنازل الذكية",
+      btnSecondary: "الأنظمة الصناعية",
+      statProjects: "مشروع منجز",
+      statClients: "عميل راضٍ",
+      statSupport: "دعم محلي بجدة"
     },
     industrialHome: {
       hero: {
@@ -445,11 +447,11 @@ export const translations = {
         certBtnClose: "إغلاق المعاينة"
       },
       ctaBanner: {
-        eyebrow: "التحول الصناعي السعودي",
-        title: "هل أنت جاهز لتطوير منشأتك الصناعية؟",
-        desc: "تواصل مع مهندسينا المعتمدين بجدة للحصول على دراسة فنية مخصصة للأتمتة الصناعية وتحديث خطوط الإنتاج.",
-        primaryBtn: "طلب استشارة هندسية",
-        secondaryBtn: "الاتصال بمكتب جدة الهندسي"
+        eyebrow: "تواصل مع تريكو العربية",
+        title: "هل أنت جاهز لتطوير وتحديث عملياتك الصناعية؟",
+        desc: "تواصل مع مهندسينا المعتمدين في جدة للمعاينات الميدانية، وتصميم لوحات التحكم، وبرمجة PLC، وخطط التحديث المتكاملة.",
+        primaryBtn: "طلب استشارة مجانية",
+        secondaryBtn: "اتصل بنا: 791 076 50 966+"
       }
     },
     visualizer: {

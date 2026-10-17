@@ -47,16 +47,16 @@ function IndustrialPage({ t, lang, onOpenQuote }) {
     <div className="pt-20 bg-white min-h-screen">
       
       {/* Industrial Hero Banner */}
-      <section className="relative py-16 sm:py-20 bg-black text-white border-b border-slate-800 overflow-hidden">
-        {/* Background Image Layer */}
+      <section className="relative py-16 sm:py-20 bg-slate-950 text-white border-b border-slate-800 overflow-hidden">
+        {/* Background Image Layer - Bright & Clear */}
         <img 
           src={industrialBg} 
           alt="Industrial Automation Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center scale-100 sm:scale-105 opacity-85"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-100 sm:scale-105 opacity-100 filter brightness-105"
         />
 
-        {/* Balanced Subtle Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-slate-950/80 pointer-events-none" />
+        {/* Minimal Subtle Light Overlay (Reduced Darkness) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/15 to-black/45 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           

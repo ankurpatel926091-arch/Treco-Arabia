@@ -10,6 +10,7 @@ import OfferingsPage from './pages/OfferingsPage';
 import IndustrialPage from './pages/IndustrialPage';
 import IndustrialProductPage from './pages/IndustrialProductPage';
 import ContactPage from './pages/ContactPage';
+import GalleryPage from './pages/GalleryPage';
 
 // Auto scroll to top on page navigation (Instant, without smooth scroll animation)
 function ScrollToTop() {
@@ -63,6 +64,10 @@ function MainContent({ lang, setLang, t }) {
           <Route 
             path="/contact" 
             element={<ContactPage t={t} lang={lang} />} 
+          />
+          <Route 
+            path="/gallery" 
+            element={<GalleryPage t={t} lang={lang} onOpenQuote={handleGoToContact} />} 
           />
           <Route 
             path="*" 

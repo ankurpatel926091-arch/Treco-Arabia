@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Lightbulb, Blinds, Lock, Thermometer, Volume2, Power, CheckCircle, Zap } from 'lucide-react';
+import smartHomeBg from '../assets/header_background_img/smart-home.png';
 
 function RoomVisualizer({ t }) {
   const [activeTab, setActiveTab] = useState('lighting');
@@ -112,15 +113,28 @@ function RoomVisualizer({ t }) {
           </div>
 
           {/* Right Visualizer Room Simulator Box (Framed Smart Screen Display) */}
-          <div className="relative h-84 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 flex flex-col justify-between overflow-hidden shadow-2xl text-white border border-slate-800 ring-4 ring-slate-100/90">
+          <div className="relative h-84 rounded-2xl bg-slate-950 p-6 flex flex-col justify-between overflow-hidden shadow-xl text-white border border-slate-700 ring-4 ring-slate-100/90">
             
-            {/* Ambient Lighting Beam */}
+            {/* Real Villa Room Background Image */}
+            <img 
+              src={smartHomeBg} 
+              alt="Villa Suite Jeddah"
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                isOn ? 'opacity-70 scale-100' : 'opacity-20 scale-95 grayscale'
+              }`}
+            />
+
+            {/* Ambient Dynamic Lighting Tint */}
             <div 
               className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${
-                isOn ? 'opacity-100' : 'opacity-10'
+                isOn ? 'opacity-90' : 'opacity-10'
               }`}
               style={{
-                background: 'radial-gradient(circle at 50% 30%, rgba(0,163,232,0.45) 0%, transparent 70%)'
+                background: activeTab === 'lighting'
+                  ? 'radial-gradient(circle at 50% 30%, rgba(251, 191, 36, 0.35) 0%, rgba(8,13,26,0.6) 80%)'
+                  : activeTab === 'climate'
+                  ? 'radial-gradient(circle at 50% 30%, rgba(0, 163, 232, 0.40) 0%, rgba(8,13,26,0.6) 80%)'
+                  : 'radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.35) 0%, rgba(8,13,26,0.6) 80%)'
               }}
             />
 

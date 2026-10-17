@@ -155,6 +155,18 @@ function Footer({ t, lang }) {
               </li>
               <li>
                 <Link
+                  to="/gallery"
+                  onClick={scrollToTop}
+                  className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer"
+                >
+                  <ChevronRight
+                    className={`w-4 h-4 text-[#00A3E8] ${lang === "ar" ? "rotate-180" : ""}`}
+                  />
+                  <span>{t.nav.gallery || (lang === "ar" ? "معرض الصور" : "Gallery")}</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/contact"
                   onClick={scrollToTop}
                   className="hover:text-[#00A3E8] transition-colors flex items-center gap-2 cursor-pointer"
@@ -309,7 +321,7 @@ function Footer({ t, lang }) {
       </div>
 
       {/* Bottom Legal Bar */}
-      <div className="bg-[#030C1C] border-t border-slate-800/80 py-3.5 sm:py-4 text-xs sm:text-sm text-slate-400">
+      <div className="bg-[#030C1C] border-t border-slate-800/80 py-3.5 sm:py-4 text-xs sm:text-sm text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <div className="font-semibold">
@@ -338,7 +350,7 @@ function Footer({ t, lang }) {
           </div>
 
           {/* Designer Credit */}
-          <div className="flex items-center gap-2 text-slate-400 font-semibold">
+          <div className="flex items-center gap-2 text-white font-semibold">
             <span>Designed by</span>
 
             <a

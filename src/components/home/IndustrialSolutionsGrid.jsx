@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowRight, ShieldCheck, Cpu, Zap, Building2 } from 'lucide-react';
 
@@ -8,6 +9,7 @@ import imgPumpsDrives from '../../assets/industrial_products/pump.jpeg';
 import imgInfrastructure from '../../assets/header_background_img/offerings.png';
 
 function IndustrialSolutionsGrid({ t, lang }) {
+  const isArabic = lang === 'ar';
   const content = t?.industrialHome?.solutions || {
     eyebrow: lang === 'ar' ? 'التخصصات الرئيسية' : 'CORE SPECIALIZATIONS',
     title: lang === 'ar' ? 'المنظومات الصناعية الذكية' : 'Intelligent Industrial Systems',
@@ -80,7 +82,13 @@ function IndustrialSolutionsGrid({ t, lang }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 sm:mb-20">
 
           {/* ---------- LEFT SIDE : HEADLINE + SUBTITLE + CTA ---------- */}
-          <div className="lg:col-span-6">
+          <motion.div 
+            initial={{ opacity: 0, x: isArabic ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6"
+          >
             {/* Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A3E8]/10 border border-[#00A3E8]/30 text-[#00A3E8] text-xs font-bold tracking-widest uppercase mb-5 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00A3E8]" />
@@ -139,11 +147,17 @@ function IndustrialSolutionsGrid({ t, lang }) {
                 <ArrowRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* ---------- RIGHT SIDE : FEATURE PANEL (Photo 2 ke Security Solutions jaise) ---------- */}
+          {/* ---------- RIGHT SIDE : FEATURE PANEL (SLIDE-IN FROM RIGHT) ---------- */}
           {flagship && (
-            <div className="lg:col-span-6">
+            <motion.div 
+              initial={{ opacity: 0, x: isArabic ? -70 : 70 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-6"
+            >
               <div className="relative rounded-3xl bg-gradient-to-br from-[#E8F4FD] to-[#D6EAF8] p-6 sm:p-8 border border-[#00A3E8]/20 shadow-xl">
                 {/* Vertical Cyan Bar (Photo 2 jaisa) */}
                 <div className="absolute top-8 left-0 w-1 h-12 bg-[#00A3E8] rounded-r" />
@@ -176,7 +190,7 @@ function IndustrialSolutionsGrid({ t, lang }) {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
 
@@ -186,8 +200,12 @@ function IndustrialSolutionsGrid({ t, lang }) {
           {[controlRooms, machinery, infrastructure].filter(Boolean).map((item, idx) => {
             const imgs = [imgControlRoom, imgPumpsDrives, imgInfrastructure];
             return (
-              <div 
+              <motion.div 
                 key={item.id || idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 className="group relative rounded-3xl overflow-hidden border border-slate-200 hover:border-[#00A3E8]/60 bg-white transition-all duration-500 shadow-lg hover:shadow-2xl flex flex-col"
               >
                 {/* Image */}
@@ -225,7 +243,7 @@ function IndustrialSolutionsGrid({ t, lang }) {
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 

@@ -12,6 +12,7 @@ import {
   Lightbulb,
   Layers,
   Wrench,
+  Image as ImageIcon,
 } from "lucide-react";
 
 function Navbar({ lang, setLang, t }) {
@@ -42,6 +43,11 @@ function Navbar({ lang, setLang, t }) {
       icon: Layers,
     },
     { path: "/industrial", label: t.nav.industrial, icon: Wrench },
+    {
+      path: "/gallery",
+      label: t.nav.gallery || (lang === "ar" ? "معرض الصور" : "Gallery"),
+      icon: ImageIcon,
+    },
   ];
 
   const handleNavigation = (path) => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Sparkles, CheckCircle2, Home, Wrench } from 'lucide-react';
-import defaultHeroVideo from '../assets/vdo/treco_hero_showcase.mp4';
-import heroPoster from '../assets/header_background_img/hero_showcase_poster.jpg';
+import defaultHeroVideo from '../assets/vdo/treco_master_hero.mp4';
+import heroPoster from '../assets/header_background_img/hero_clean_poster.jpg';
 
 function Hero({ t, lang, videoUrl }) {
   const activeVideo = videoUrl || defaultHeroVideo;
@@ -20,24 +20,24 @@ function Hero({ t, lang, videoUrl }) {
         loop
         playsInline
         poster={heroPoster}
-        className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-95 scale-100 sm:scale-105"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-100 scale-100 sm:scale-105"
       >
         <source src={activeVideo} type="video/mp4" />
       </video>
 
-      {/* ====== LAYER 2: Multi-Stop Cyan-Tinted Overlay (LIGHTER) ====== */}
+      {/* ====== LAYER 2: Multi-Stop Cyan-Tinted Overlay (REDUCED DARKNESS) ====== */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,163,232,0.15), transparent 60%),
-            radial-gradient(ellipse 50% 40% at 15% 25%, rgba(0,163,232,0.08), transparent 60%),
+            radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,163,232,0.10), transparent 60%),
+            radial-gradient(ellipse 50% 40% at 15% 25%, rgba(0,163,232,0.05), transparent 60%),
             linear-gradient(to bottom, 
-              rgba(8, 13, 26, 0.55) 0%,
-              rgba(8, 13, 26, 0.35) 20%,
-              rgba(10, 22, 45, 0.28) 45%,
-              rgba(8, 13, 26, 0.45) 72%,
-              rgba(8, 13, 26, 0.65) 100%
+              rgba(8, 13, 26, 0.22) 0%,
+              rgba(8, 13, 26, 0.10) 20%,
+              rgba(10, 22, 45, 0.08) 45%,
+              rgba(8, 13, 26, 0.16) 72%,
+              rgba(8, 13, 26, 0.32) 100%
             )
           `
         }}
@@ -45,7 +45,7 @@ function Hero({ t, lang, videoUrl }) {
 
       {/* ====== LAYER 3: Subtle Dot Grid Overlay ====== */}
       <div 
-        className="absolute inset-0 opacity-[0.04] pointer-events-none z-[1]"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1]"
         style={{
           backgroundImage: 'radial-gradient(#00A3E8 1px, transparent 1px)',
           backgroundSize: '40px 40px',
@@ -55,18 +55,18 @@ function Hero({ t, lang, videoUrl }) {
       />
 
       {/* ====== LAYER 4: Cyan Accent Glow Line (Subtle Divider) ====== */}
-      <div className="absolute bottom-40 sm:bottom-48 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00A3E8]/40 to-transparent pointer-events-none z-[6]" />
+      <div className="absolute bottom-40 sm:bottom-48 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00A3E8]/35 to-transparent pointer-events-none z-[6]" />
 
-      {/* ====== LAYER 5: BOTTOM FADE — Light Dark Navy (Soft) ====== */}
+      {/* ====== LAYER 5: BOTTOM FADE — Soft & Subtle ====== */}
       <div 
-        className="absolute bottom-0 left-0 right-0 h-40 sm:h-48 pointer-events-none z-[5]"
+        className="absolute bottom-0 left-0 right-0 h-28 sm:h-36 pointer-events-none z-[5]"
         style={{
           background: `linear-gradient(to bottom, 
             transparent 0%, 
-            rgba(8,13,26,0.12) 35%,
-            rgba(8,13,26,0.30) 65%,
-            rgba(8,13,26,0.50) 85%,
-            rgba(8,13,26,0.70) 100%
+            rgba(8,13,26,0.04) 40%,
+            rgba(8,13,26,0.18) 70%,
+            rgba(8,13,26,0.38) 90%,
+            rgba(8,13,26,0.52) 100%
           )`
         }}
       />
@@ -81,21 +81,21 @@ function Hero({ t, lang, videoUrl }) {
             <span>{t.hero.badge.replace(/^🇸🇦\s*/, '')}</span>
           </div>
 
-          {/* Main Headline - 3 Clean Structured Lines */}
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.2] sm:leading-[1.18] mb-3 sm:mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+          {/* Main Headline - 3 Clean Structured Lines mentioning Treco Arabia */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.14] mb-3 sm:mb-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
             <span className="block text-white">
-              {t.hero.titleLine1 || t.hero.titleStart || "Your Search for the Perfect"}
+              {t.hero.titleLine1 || t.hero.titleStart || "Engineering the Future with"}
             </span>
-            <span className="block text-[#00A3E8] my-1 sm:my-2 drop-shadow-[0_4px_24px_rgba(0,163,232,0.6)]">
-              {t.hero.titleHighlight}
+            <span className="block text-[#00A3E8] my-1 sm:my-2 tracking-tight drop-shadow-[0_0_35px_rgba(0,163,232,0.6)]">
+              {t.hero.titleHighlight || "Treco Arabia"}
             </span>
-            <span className="block text-white">
-              {t.hero.titleLine2 || t.hero.titleEnd || "Company Ends Here!"}
+            <span className="block text-white text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-200">
+              {t.hero.titleLine2 || t.hero.titleEnd || "in Saudi Arabia"}
             </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xs sm:text-base text-slate-100 font-medium leading-relaxed max-w-xl mx-auto mb-6 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] px-2">
+          {/* Minimal Subtitle */}
+          <p className="text-xs sm:text-sm md:text-base text-slate-100 font-medium leading-relaxed max-w-xl mx-auto mb-6 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] px-2">
             {t.hero.subtitle}
           </p>
 

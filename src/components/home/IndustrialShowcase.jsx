@@ -267,15 +267,10 @@ function IndustrialShowcase({ t, lang }) {
               </div>
 
               {/* Caption Area */}
-              <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight group-hover:text-[#00A3E8] transition-colors mb-1.5">
-                    {lang === 'ar' ? item.titleAr : item.titleEn}
-                  </h3>
-                  <p className="text-xs text-slate-500 font-medium">
-                    {lang === 'ar' ? item.specAr : item.specEn}
-                  </p>
-                </div>
+              <div className="p-4 sm:p-5 flex items-center justify-between flex-grow">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight group-hover:text-[#00A3E8] transition-colors">
+                  {lang === 'ar' ? item.titleAr : item.titleEn}
+                </h3>
               </div>
 
               {/* Bottom Cyan Shimmer Line */}
