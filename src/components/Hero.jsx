@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Sparkles, CheckCircle2, Home, Wrench } from 'lucide-react';
-import defaultHeroVideo from '../assets/vdo/treco_master_hero.mp4';
+import defaultHeroVideo from '../assets/vdo/heroBackgroundvdo.mp4';
 import heroPoster from '../assets/header_background_img/hero_clean_poster.jpg';
 
 function Hero({ t, lang, videoUrl }) {
@@ -13,19 +13,26 @@ function Hero({ t, lang, videoUrl }) {
       className="relative min-h-screen lg:h-screen flex flex-col justify-center items-center pt-20 pb-8 sm:pt-24 sm:pb-12 overflow-hidden bg-[#080D1A] text-white"
     >
       
-      {/* ====== LAYER 1: Background Video ====== */}
+      {/* ====== LAYER 1: Background Video (FULL WIDTH & HEIGHT) ====== */}
+      {/* object-cover screen ko poori tarah fill karega, bina kisi khali jagah ke */}
       <video
         autoPlay
         muted
         loop
         playsInline
         poster={heroPoster}
-        className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-100 scale-100 sm:scale-105"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-100"
+        style={{
+          transform: 'translateZ(0)', // Hardware acceleration for smooth play
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+        }}
       >
         <source src={activeVideo} type="video/mp4" />
       </video>
 
-      {/* ====== LAYER 2: Multi-Stop Cyan-Tinted Overlay (REDUCED DARKNESS) ====== */}
+      {/* ====== LAYER 2: Cyan-Tinted Overlay ====== */}
+      {/* Ye overlay text ko padhne me aasan banata hai aur video ko thoda dark karta hai */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -33,17 +40,16 @@ function Hero({ t, lang, videoUrl }) {
             radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,163,232,0.10), transparent 60%),
             radial-gradient(ellipse 50% 40% at 15% 25%, rgba(0,163,232,0.05), transparent 60%),
             linear-gradient(to bottom, 
-              rgba(8, 13, 26, 0.22) 0%,
-              rgba(8, 13, 26, 0.10) 20%,
-              rgba(10, 22, 45, 0.08) 45%,
-              rgba(8, 13, 26, 0.16) 72%,
-              rgba(8, 13, 26, 0.32) 100%
+              rgba(8, 13, 26, 0.45) 0%,
+              rgba(8, 13, 26, 0.25) 30%,
+              rgba(10, 22, 45, 0.35) 60%,
+              rgba(8, 13, 26, 0.65) 100%
             )
           `
         }}
       />
 
-      {/* ====== LAYER 3: Subtle Dot Grid Overlay ====== */}
+      {/* ====== LAYER 3: Dot Grid ====== */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1]"
         style={{
@@ -54,10 +60,7 @@ function Hero({ t, lang, videoUrl }) {
         }}
       />
 
-      {/* ====== LAYER 4: Cyan Accent Glow Line (Subtle Divider) ====== */}
-      <div className="absolute bottom-40 sm:bottom-48 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00A3E8]/35 to-transparent pointer-events-none z-[6]" />
-
-      {/* ====== LAYER 5: BOTTOM FADE — Soft & Subtle ====== */}
+      {/* ====== LAYER 4: Bottom Fade ====== */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-28 sm:h-36 pointer-events-none z-[5]"
         style={{
@@ -81,7 +84,7 @@ function Hero({ t, lang, videoUrl }) {
             <span>{t.hero.badge.replace(/^🇸🇦\s*/, '')}</span>
           </div>
 
-          {/* Main Headline - 3 Clean Structured Lines mentioning Treco Arabia */}
+          {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.14] mb-3 sm:mb-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
             <span className="block text-white">
               {t.hero.titleLine1 || t.hero.titleStart || "Engineering the Future with"}
@@ -94,12 +97,12 @@ function Hero({ t, lang, videoUrl }) {
             </span>
           </h1>
 
-          {/* Minimal Subtitle */}
+          {/* Subtitle */}
           <p className="text-xs sm:text-sm md:text-base text-slate-100 font-medium leading-relaxed max-w-xl mx-auto mb-6 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] px-2">
             {t.hero.subtitle}
           </p>
 
-          {/* Action Buttons - Side by Side on Mobile */}
+          {/* Action Buttons */}
           <div className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 mb-8 sm:mb-12 max-w-md mx-auto">
             <Link
               to="/smart-home"
@@ -118,11 +121,11 @@ function Hero({ t, lang, videoUrl }) {
             </Link>
           </div>
 
-          {/* Quick Metrics Bar - Compact Responsive Grid */}
+          {/* Quick Metrics Bar */}
           <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6 border-t border-white/20 text-left">
             
             <div className="bg-black/50 backdrop-blur-md p-2.5 sm:p-4 rounded-xl border border-white/15 flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-center sm:text-left shadow-lg">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#00A3E8]/20 border border-[#00A3E8]/40 flex items-center justify-center text-[#00A3E8]">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#00A3E8]/20 border border-[#00A3E8]/40 flex items-center justify-center text-[#00A3E8] flex-shrink-0">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
@@ -132,7 +135,7 @@ function Hero({ t, lang, videoUrl }) {
             </div>
 
             <div className="bg-black/50 backdrop-blur-md p-2.5 sm:p-4 rounded-xl border border-white/15 flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-center sm:text-left shadow-lg">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 flex-shrink-0">
                 <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
@@ -142,7 +145,7 @@ function Hero({ t, lang, videoUrl }) {
             </div>
 
             <div className="bg-black/50 backdrop-blur-md p-2.5 sm:p-4 rounded-xl border border-white/15 flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-center sm:text-left shadow-lg">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-300">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-300 flex-shrink-0">
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>

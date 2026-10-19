@@ -20,6 +20,10 @@ function HomePage({ t, lang, onOpenQuote }) {
       {/* 2. Visual & Minimalistic About Section */}
       <AboutSection lang={lang} onOpenQuote={onOpenQuote} />
 
+      {/* 6. Syncrow IoT Products & App Showcase (4-Screen Parallax Wave & 6 Categories) */}
+      <SyncrowProductsShowcase lang={lang} onOpenQuote={onOpenQuote} />
+
+
       {/* 3. IoT-Powered Automation for Smarter Operations (Syncrow Photo 3) */}
       <IoTPoweredOperations lang={lang} />
 
@@ -29,9 +33,7 @@ function HomePage({ t, lang, onOpenQuote }) {
       {/* 5. Our Numbers Tell the Story with 3D Globe Mesh (Syncrow Photo 2) */}
       <OurNumbersStory lang={lang} />
 
-      {/* 6. Syncrow IoT Products & App Showcase (4-Screen Parallax Wave & 6 Categories) */}
-      <SyncrowProductsShowcase lang={lang} onOpenQuote={onOpenQuote} />
-
+      
       {/* 7. Industrial Showcase & Equipment Gallery */}
       <IndustrialShowcase t={t} lang={lang} />
 

@@ -63,7 +63,7 @@ function IoTPoweredOperations({ lang = 'en' }) {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#EAF4FB] via-white to-[#EAF4FB] text-slate-900 border-b border-slate-200 relative overflow-hidden">
+    <section className="pt-20 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#EAF4FB] via-white to-[#EAF4FB] text-slate-900 border-b border-slate-200 relative overflow-hidden">
       
       {/* Background Ambient Glows */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-[#00A3E8]/10 blur-[140px] pointer-events-none rounded-full" />

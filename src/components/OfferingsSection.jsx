@@ -129,7 +129,7 @@ function OfferingsSection({ lang = 'en', onOpenQuote }) {
     <section 
       id="offerings" 
       dir={isArabic ? 'rtl' : 'ltr'}
-      className="py-10 sm:py-16 relative bg-gradient-to-b from-white via-[#F4F9FD] to-[#EBF5FC]/60 text-slate-900 border-b border-slate-200 overflow-hidden"
+      className="pt-20 sm:pt-24 pb-10 sm:pb-16 relative bg-gradient-to-b from-white via-[#F4F9FD] to-[#EBF5FC]/60 text-slate-900 border-b border-slate-200 overflow-hidden"
     >
       {/* Decorative Ambient Cyan Glows */}
       <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />

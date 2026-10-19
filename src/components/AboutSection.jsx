@@ -139,7 +139,7 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
   return (
     <section 
       id="about" 
-      className="py-12 sm:py-16 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-gradient-to-b from-white via-[#F8FAFD] to-[#EFF5FB]"
+      className="pt-20 sm:pt-24 pb-12 sm:pb-16 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-gradient-to-b from-white via-[#F8FAFD] to-[#EFF5FB]"
     >
       {/* ====== Ambient Lighting Background ====== */}
       <div 

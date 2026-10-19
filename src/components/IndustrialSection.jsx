@@ -7,7 +7,7 @@ function IndustrialSection({ lang, onOpenQuote }) {
   const products = industrialProducts;
 
   return (
-    <section id="industrial" className="py-12 sm:py-16 relative bg-gradient-to-b from-white via-[#F0F7FF] to-[#EBF5FC]/70 text-slate-900 border-b border-slate-200 overflow-hidden">
+    <section id="industrial" className="pt-20 sm:pt-24 pb-12 sm:pb-16 relative bg-gradient-to-b from-white via-[#F0F7FF] to-[#EBF5FC]/70 text-slate-900 border-b border-slate-200 overflow-hidden">
       
       {/* Decorative Radiant Cyan & Sky Ambient Glows */}
       <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />

@@ -137,7 +137,7 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
   return (
     <section 
       ref={showcaseRef}
-      className="py-16 sm:py-24 bg-gradient-to-b from-[#EAF4FB] via-white to-[#EAF4FB] text-slate-900 border-b border-slate-200 relative overflow-hidden"
+      className="pt-20 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#EAF4FB] via-white to-[#EAF4FB] text-slate-900 border-b border-slate-200 relative overflow-hidden"
     >
       {/* Ambient Lighting Backdrops */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-[#00A3E8]/10 via-sky-400/5 to-transparent blur-[160px] pointer-events-none rounded-full" />
@@ -155,110 +155,9 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ============================================================ */}
-        {/* HEADER (Syncrow Section 1 Style)                             */}
+        {/* 1. THE 6-CATEGORY SMART IOT DEVICES GRID (ABOVE NOW)         */}
         {/* ============================================================ */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A3E8]/10 border border-[#00A3E8]/30 text-[#00A3E8] text-xs font-bold tracking-widest uppercase mb-4 shadow-2xs"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'تطبيق سينكرو الذكي' : 'SMART AUTOMATION APP'}</span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.1 }}
-            className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4"
-          >
-            {isArabic ? (
-              <>
-                تطبيق ذكي للأتمتة <span className="text-[#00A3E8]">صُمم خصيصاً للمستخدمين</span>
-              </>
-            ) : (
-              <>
-                Smart Automation App <span className="text-[#00A3E8]">Built for Users</span>
-              </>
-            )}
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.2 }}
-            className="text-xs sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto"
-          >
-            {isArabic
-              ? 'امنح عملاءك وسكانك تحكماً سلساً بكافة مساحات المبنى عبر تطبيق فائق الأداء يتصل مباشرة بالبنية التحتية الذكية.'
-              : 'Offer your customers seamless space control through a powerful app that integrates directly with your property’s smart infrastructure.'}
-          </motion.p>
-        </div>
-
-        {/* ============================================================ */}
-        {/* 1. THE 4-DEVICE ALTERNATING SCROLL PARALLAX WAVE             */}
-        {/* ============================================================ */}
-        <div className="relative py-8 sm:py-14 mb-20 sm:mb-28">
-          
-          {/* Subtle Ambient Curved Wave Aura behind Devices */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[300px] sm:h-[420px] rounded-full bg-gradient-to-r from-[#00A3E8]/10 via-sky-300/15 to-[#00A3E8]/10 blur-[100px] pointer-events-none" />
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center">
-            {screens.map((item, idx) => (
-              <motion.div
-                key={item.id}
-                style={{ y: item.yMotion }}
-                initial={{ opacity: 0, y: idx % 2 === 0 ? 50 : -50, scale: 0.92 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative flex flex-col items-center"
-              >
-                {/* Device Card Container */}
-                <div className="relative w-full rounded-2xl sm:rounded-3xl p-3 sm:p-5 bg-gradient-to-b from-[#EBF4FA] via-white to-[#DCEEFB] border border-slate-200/90 shadow-[0_15px_35px_-5px_rgba(0,163,232,0.12),0_4px_15px_-2px_rgba(0,0,0,0.04)] group-hover:border-[#00A3E8] group-hover:shadow-[0_25px_50px_-10px_rgba(0,163,232,0.25)] transition-all duration-500 overflow-hidden">
-                  
-                  {/* Top Glowing Cyan Pill Indicator */}
-                  <div className="flex items-center justify-between mb-3 text-[10px] sm:text-xs font-mono font-bold text-slate-500">
-                    <span className="px-2.5 py-0.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] shadow-2xs">
-                      {item.badge}
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-[#00A3E8] animate-pulse" />
-                  </div>
-
-                  {/* Phone Screen Mockup */}
-                  <div className="relative aspect-[9/18] max-h-[360px] sm:max-h-[420px] mx-auto flex items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl bg-slate-950 p-1 sm:p-1.5 shadow-inner">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-700 select-none pointer-events-none"
-                    />
-                  </div>
-
-                  {/* Title and Short Description below Screen */}
-                  <div className="mt-4 text-center">
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#00A3E8] transition-colors leading-snug">
-                      {item.title}
-                    </h4>
-                    <p className="mt-1 text-[11px] sm:text-xs text-slate-500 leading-snug hidden sm:block">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-
-        {/* ============================================================ */}
-        {/* 2. THE 6-CATEGORY SMART IOT DEVICES GRID (STAGGERED SCROLL)   */}
-        {/* ============================================================ */}
-        <div className="mt-12 sm:mt-16 pt-12 border-t border-slate-200">
+        <div className="mb-20 sm:mb-28">
           
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <motion.h3 
@@ -342,9 +241,8 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
                   </div>
 
                   {/* Micro Footer Indicator */}
-                  <div className="mt-4 pt-3 flex items-center justify-between text-[11px] font-mono text-slate-400 group-hover:text-[#00A3E8] transition-colors">
+                  <div className="mt-4 pt-3 flex items-center text-[11px] font-mono text-slate-400 group-hover:text-[#00A3E8] transition-colors">
                     <span>0{idx + 1} // PROTOCOL CERTIFIED</span>
-                    <ArrowRight className={`w-4 h-4 transform group-hover:translate-x-1 transition-transform ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
                   </div>
                 </motion.div>
               );
@@ -371,6 +269,109 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
                 <ArrowRight className={`w-4 h-4 ${isArabic ? 'rotate-180' : ''}`} />
               </a>
             )}
+          </div>
+
+        </div>
+
+        {/* ============================================================ */}
+        {/* 2. HEADER & THE 4-DEVICE ALTERNATING SCROLL PARALLAX WAVE    */}
+        {/* ============================================================ */}
+        <div className="pt-12 border-t border-slate-200">
+          
+          {/* Header (Syncrow Section 1 Style) */}
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A3E8]/10 border border-[#00A3E8]/30 text-[#00A3E8] text-xs font-bold tracking-widest uppercase mb-4 shadow-2xs"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'تطبيق سينكرو الذكي' : 'SMART AUTOMATION APP'}</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+              className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4"
+            >
+              {isArabic ? (
+                <>
+                  تطبيق ذكي للأتمتة <span className="text-[#00A3E8]">صُمم خصيصاً للمستخدمين</span>
+                </>
+              ) : (
+                <>
+                  Smart Automation App <span className="text-[#00A3E8]">Built for Users</span>
+                </>
+              )}
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.2 }}
+              className="text-xs sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto"
+            >
+              {isArabic
+                ? 'امنح عملاءك وسكانك تحكماً سلساً بكافة مساحات المبنى عبر تطبيق فائق الأداء يتصل مباشرة بالبنية التحتية الذكية.'
+                : 'Offer your customers seamless space control through a powerful app that integrates directly with your property’s smart infrastructure.'}
+            </motion.p>
+          </div>
+
+          <div className="relative py-8 sm:py-14">
+            
+            {/* Subtle Ambient Curved Wave Aura behind Devices */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[300px] sm:h-[420px] rounded-full bg-gradient-to-r from-[#00A3E8]/10 via-sky-300/15 to-[#00A3E8]/10 blur-[100px] pointer-events-none" />
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center">
+              {screens.map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  style={{ y: item.yMotion }}
+                  initial={{ opacity: 0, y: idx % 2 === 0 ? 50 : -50, scale: 0.92 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="group relative flex flex-col items-center"
+                >
+                  {/* Device Card Container */}
+                  <div className="relative w-full rounded-2xl sm:rounded-3xl p-3 sm:p-5 bg-gradient-to-b from-[#EBF4FA] via-white to-[#DCEEFB] border border-slate-200/90 shadow-[0_15px_35px_-5px_rgba(0,163,232,0.12),0_4px_15px_-2px_rgba(0,0,0,0.04)] group-hover:border-[#00A3E8] group-hover:shadow-[0_25px_50px_-10px_rgba(0,163,232,0.25)] transition-all duration-500 overflow-hidden">
+                    
+                    {/* Top Glowing Cyan Pill Indicator */}
+                    <div className="flex items-center justify-between mb-3 text-[10px] sm:text-xs font-mono font-bold text-slate-500">
+                      <span className="px-2.5 py-0.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] shadow-2xs">
+                        {item.badge}
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-[#00A3E8] animate-pulse" />
+                    </div>
+
+                    {/* Phone Screen Mockup */}
+                    <div className="relative aspect-[9/18] max-h-[360px] sm:max-h-[420px] mx-auto flex items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl bg-slate-950 p-1 sm:p-1.5 shadow-inner">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-700 select-none pointer-events-none"
+                      />
+                    </div>
+
+                    {/* Title and Short Description below Screen */}
+                    <div className="mt-4 text-center">
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#00A3E8] transition-colors leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="mt-1 text-[11px] sm:text-xs text-slate-500 leading-snug hidden sm:block">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
           </div>
 
         </div>

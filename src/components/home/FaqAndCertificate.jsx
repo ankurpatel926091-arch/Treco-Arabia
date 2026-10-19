@@ -112,7 +112,7 @@ function FaqAndCertificate({ t, lang }) {
   return (
     <section 
       id="faq-certification" 
-      className="py-16 sm:py-24 text-slate-900 border-b border-slate-200 relative overflow-hidden"
+      className="pt-20 sm:pt-24 pb-16 sm:pb-24 text-slate-900 border-b border-slate-200 relative overflow-hidden"
     >
       {/* ====== LAYER 1: Rich Multi-Stop Premium Light Gradient ====== */}
       <div 

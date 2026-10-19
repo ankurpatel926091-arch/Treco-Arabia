@@ -37,7 +37,7 @@ function OurNumbersStory({ lang = 'en' }) {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F8FBFE] to-[#EFF6FC] text-slate-900 relative overflow-hidden border-b border-slate-200">
+    <section className="pt-20 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-white via-[#F8FBFE] to-[#EFF6FC] text-slate-900 relative overflow-hidden border-b border-slate-200">
       
       {/* Background Ambience Layers */}
       <div className="absolute top-1/2 right-10 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#00A3E8]/10 via-sky-400/5 to-transparent blur-[140px] pointer-events-none rounded-full" />

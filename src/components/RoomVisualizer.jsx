@@ -19,7 +19,7 @@ function RoomVisualizer({ t }) {
   return (
     <section 
       id="smart-home" 
-      className="py-12 sm:py-16 relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
+      className="pt-20 sm:pt-24 pb-16 sm:pb-24 relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FC] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
     >
       {/* Decorative Radiant Cyan & Sky Ambient Glows (Non-black, soft luxury feel) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00A3E8]/12 blur-[140px] pointer-events-none rounded-full" />

@@ -66,7 +66,7 @@ function VoiceDemo({ t, lang = 'en' }) {
   return (
     <section 
       dir={isArabic ? 'rtl' : 'ltr'}
-      className="py-10 sm:py-16 relative bg-gradient-to-b from-[#EBF5FC]/60 via-[#F4F9FD] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
+      className="pt-20 sm:pt-24 pb-16 sm:pb-24 relative bg-gradient-to-b from-[#EBF5FC]/60 via-[#F4F9FD] to-white text-slate-900 border-b border-slate-200 overflow-hidden"
     >
       {/* Decorative Ambient Cyan Glows */}
       <div className="absolute top-10 right-10 w-[500px] h-[300px] bg-[#00A3E8]/10 blur-[130px] pointer-events-none rounded-full" />

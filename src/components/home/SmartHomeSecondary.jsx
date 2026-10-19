@@ -12,11 +12,6 @@ import {
   CheckCircle2, 
   Zap, 
   Award, 
-  Clock, 
-  FileCheck2, 
-  Wrench, 
-  Headphones, 
-  SlidersHorizontal,
   ChevronRight,
   PhoneCall
 } from 'lucide-react';
@@ -118,46 +113,10 @@ function SmartHomeSecondary({ t, lang = 'en', onOpenQuote }) {
     }
   ];
 
-  // 4-Step Engineering Lifecycle (Smarta standard)
-  const steps = [
-    {
-      num: '01',
-      title: isArabic ? 'التخطيط ودراسة المخططات' : 'Planning & Needs Analysis',
-      desc: isArabic 
-        ? 'دراسة المخططات المعمارية وتحديد المتطلبات بدقة لضمان أفضل تصميم.' 
-        : 'Detailed architectural blueprint study and bespoke needs assessment.',
-      icon: FileCheck2
-    },
-    {
-      num: '02',
-      title: isArabic ? 'التأسيس والإشراف الهندسي' : 'Infrastructure & Rough-In',
-      desc: isArabic 
-        ? 'تمديد مسارات الكابلات ولوحات التوزيع وفق معايير SASO و IEC.' 
-        : 'Low-current conduits, bus cabling, and panel routing compliant with SASO.',
-      icon: Wrench
-    },
-    {
-      num: '03',
-      title: isArabic ? 'البرمجة والتشغيل المعتمد' : 'Commissioning & Integration',
-      desc: isArabic 
-        ? 'برمجة احترافية لأنظمة KNX و Zigbee وتكامل التطبيقات والسيناريوهات.' 
-        : 'Certified programming of KNX & Zigbee with scene calibration & app sync.',
-      icon: SlidersHorizontal
-    },
-    {
-      num: '04',
-      title: isArabic ? 'الضمان الممتد ٥ سنوات والدعم' : '5-Yr Warranty & 24/7 Support',
-      desc: isArabic 
-        ? 'ضمان حقيقي شامل مع دعم فني محلي وصيانة دورية على مدار الساعة.' 
-        : 'Comprehensive 5-year local warranty with 24/7 Saudi engineering support.',
-      icon: Award
-    }
-  ];
-
   const currentSector = sectors[activeTab];
 
   return (
-    <section className="py-16 sm:py-24 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-gradient-to-b from-white via-[#F8FBFF] to-[#EFF6FF]">
+    <section className="pt-20 sm:pt-24 pb-16 sm:pb-24 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-gradient-to-b from-white via-[#F8FBFF] to-[#EFF6FF]">
       
       {/* Background Ambience Layers */}
       <div 
@@ -247,7 +206,7 @@ function SmartHomeSecondary({ t, lang = 'en', onOpenQuote }) {
         {/* ============================================================ */}
         {/* INTERACTIVE SHOWCASE CARD: SLIDE-IN FROM RIGHT EFFECT        */}
         {/* ============================================================ */}
-        <div className="rounded-3xl border border-slate-200 bg-white/95 backdrop-blur-md shadow-[0_20px_60px_rgba(15,23,42,0.08),0_0_40px_rgba(0,163,232,0.06)] overflow-hidden mb-16">
+        <div className="rounded-3xl border border-slate-200 bg-white/95 backdrop-blur-md shadow-[0_20px_60px_rgba(15,23,42,0.08),0_0_40px_rgba(0,163,232,0.06)] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[460px]">
             
             {/* Left Content Area (7 Cols) */}
