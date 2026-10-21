@@ -47,12 +47,14 @@ function IndustrialSection({ lang, onOpenQuote }) {
           {products.map((item) => (
             <div 
               key={item.id}
-              className="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/90 shadow-[0_10px_30px_rgba(0,163,232,0.06)] hover:shadow-[0_20px_45px_rgba(0,163,232,0.18)] hover:border-[#00A3E8] hover:-translate-y-2 transition-all group duration-300 flex flex-col justify-between overflow-hidden relative"
+              /* Changed rounded-3xl to rounded-xl for less rounded corners */
+              className="bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-[0_10px_30px_rgba(0,163,232,0.06)] hover:shadow-[0_20px_45px_rgba(0,163,232,0.18)] hover:border-[#00A3E8] hover:-translate-y-2 transition-all group duration-300 flex flex-col justify-start overflow-hidden relative"
             >
               {/* Top Subtle Border Accent Shimmer */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" />
 
-              <div>
+              {/* Inner wrapper to allow button to sit at bottom gracefully */}
+              <div className="flex flex-col flex-1">
                 {/* Real High-Resolution Industrial Photo */}
                 <Link 
                   to={`/industrial/${item.id}`} 
@@ -64,15 +66,10 @@ function IndustrialSection({ lang, onOpenQuote }) {
                     className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500"
                     loading="lazy"
                   />
-                  
-                  {/* Category / Status Badge on Photo */}
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#00A3E8] border border-slate-200/90 text-[10px] font-black uppercase tracking-wider shadow-sm z-10">
-                    {lang === 'ar' ? item.badgeAr : item.badgeEn}
-                  </span>
                 </Link>
 
                 {/* Card Title & Description */}
-                <div className="p-5 sm:p-6 pb-2 text-center">
+                <div className="p-5 sm:p-6 text-center">
                   <Link to={`/industrial/${item.id}`} className="block">
                     <h3 className="text-lg sm:text-xl font-black text-slate-900 group-hover:text-[#00A3E8] transition-colors mb-2 leading-snug cursor-pointer">
                       {lang === 'ar' ? item.titleAr : item.titleEn}
@@ -85,10 +82,11 @@ function IndustrialSection({ lang, onOpenQuote }) {
               </div>
 
               {/* Cyan Action Button - Opens Professional Product Page */}
-              <div className="p-5 sm:p-6 pt-2">
+              <div className="px-5 sm:px-6 pb-5 sm:pb-6 mt-auto">
                 <Link
                   to={`/industrial/${item.id}`}
-                  className="w-full py-3 rounded-xl bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-sm hover:shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 group/btn"
+                  /* Changed rounded-xl to rounded-lg to match the sharper card look */
+                  className="w-full py-3 rounded-lg bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-sm hover:shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 group/btn"
                 >
                   <span>{lang === 'ar' ? 'استكشف المزيد' : 'Explore More'}</span>
                   <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
@@ -100,7 +98,7 @@ function IndustrialSection({ lang, onOpenQuote }) {
         </div>
 
         {/* High-End Industrial Callout Banner with Radiant Tech Gradient */}
-        <div className="bg-gradient-to-br from-[#061C3D] via-[#0A2E5C] to-[#030E1F] text-white p-6 sm:p-8 rounded-3xl border border-sky-400/35 shadow-[0_20px_50px_-10px_rgba(0,163,232,0.3)] flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+        <div className="bg-gradient-to-br from-[#061C3D] via-[#0A2E5C] to-[#030E1F] text-white p-6 sm:p-8 rounded-xl border border-sky-400/35 shadow-[0_20px_50px_-10px_rgba(0,163,232,0.3)] flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden group">
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-90" />
           <div className="absolute -top-16 -right-16 w-80 h-80 bg-[#00A3E8]/20 blur-[90px] pointer-events-none rounded-full" />
           <div className="absolute -bottom-16 -left-16 w-80 h-80 bg-blue-600/20 blur-[90px] pointer-events-none rounded-full" />
@@ -117,7 +115,7 @@ function IndustrialSection({ lang, onOpenQuote }) {
           </div>
           <Link 
             to="/contact"
-            className="relative z-10 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00A3E8] via-cyan-400 to-[#00A3E8] hover:from-cyan-300 hover:to-sky-300 text-slate-950 font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(0,163,232,0.5)] hover:scale-105 transition-all cursor-pointer whitespace-nowrap"
+            className="relative z-10 px-7 py-3.5 rounded-lg bg-gradient-to-r from-[#00A3E8] via-cyan-400 to-[#00A3E8] hover:from-cyan-300 hover:to-sky-300 text-slate-950 font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(0,163,232,0.5)] hover:scale-105 transition-all cursor-pointer whitespace-nowrap"
           >
             {lang === 'ar' ? 'استشارة المهندس الصناعي' : 'Consult Industrial Team'}
           </Link>

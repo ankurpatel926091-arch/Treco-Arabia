@@ -27,96 +27,64 @@ function OfferingsSection({ lang = 'en', onOpenQuote }) {
       id: 'lighting',
       cat: 'lighting_climate',
       image: imgLighting,
-      badgeEn: 'Lighting',
-      badgeAr: 'إضاءة',
       titleEn: 'Smart Architectural Lighting',
       titleAr: 'الإضاءة المعمارية الذكية',
-      featureEn: 'DALI & Zigbee 3.0',
-      featureAr: 'بروتوكول DALI و Zigbee',
       link: '/smart-home'
     },
     {
       id: 'thermostat',
       cat: 'lighting_climate',
       image: imgThermostat,
-      badgeEn: 'Climate',
-      badgeAr: 'تكييف',
       titleEn: 'Smart Digital Thermostats',
       titleAr: 'ترموستات التكييف الذكي',
-      featureEn: 'Inverter Eco Control',
-      featureAr: 'توفير الطاقة والتحكم الذكي',
       link: '/smart-home'
     },
     {
       id: 'hvac',
       cat: 'lighting_climate',
       image: imgHvac,
-      badgeEn: 'VRF HVAC',
-      badgeAr: 'تكييف مركزي',
       titleEn: 'Central HVAC Control',
       titleAr: 'أنظمة التكييف المركزي',
-      featureEn: 'BACnet / Modbus Sync',
-      featureAr: 'ربط مركزي BACnet',
       link: '/smart-home'
     },
     {
       id: 'curtains',
       cat: 'lighting_climate',
       image: imgCurtains,
-      badgeEn: 'Shading',
-      badgeAr: 'ستائر',
       titleEn: 'Motorized Smart Curtains',
       titleAr: 'الستائر الكهربائية الصامتة',
-      featureEn: 'Ultra-Quiet Motors',
-      featureAr: 'محركات صامتة وسيناريوهات',
       link: '/smart-home'
     },
     {
       id: 'lock',
       cat: 'security',
       image: imgLock,
-      badgeEn: 'Access',
-      badgeAr: 'أمان ومداخل',
       titleEn: 'Biometric Smart Locks',
       titleAr: 'الأقفال البيومترية الذكية',
-      featureEn: 'Fingerprint & Passcode',
-      featureAr: 'بصمة حيوية وكود رقمي',
       link: '/smart-home'
     },
     {
       id: 'cctv',
       cat: 'security',
       image: imgCctv,
-      badgeEn: 'Surveillance',
-      badgeAr: 'مراقبة',
       titleEn: '4K AI Security Cameras',
       titleAr: 'كاميرات المراقبة الذكية AI',
-      featureEn: '4K Color Night Vision',
-      featureAr: 'رؤية ليلية ملونة 4K',
       link: '/smart-home'
     },
     {
       id: 'doorbell',
       cat: 'security',
       image: imgDoorbell,
-      badgeEn: 'Intercom',
-      badgeAr: 'إنتركوم',
       titleEn: 'Smart Video Intercom',
       titleAr: 'الجرس والإنتركوم المرئي',
-      featureEn: 'HD Video & Two-Way Audio',
-      featureAr: 'بث مباشر وتواصل ثنائي',
       link: '/smart-home'
     },
     {
       id: 'speakers',
       cat: 'entertainment',
       image: imgSpeakers,
-      badgeEn: 'Audio',
-      badgeAr: 'صوتيات',
       titleEn: 'Multi-Room Audio Systems',
       titleAr: 'النظام الصوتي الموزع',
-      featureEn: 'AirPlay 2 & Lossless Hi-Fi',
-      featureAr: 'بث صوتي متعدد الغرف',
       link: '/smart-home'
     },
   ];
@@ -196,7 +164,7 @@ function OfferingsSection({ lang = 'en', onOpenQuote }) {
           </div>
         </div>
 
-        {/* 8 Compact Product Cards Grid (4 per row on Desktop, 2 per row on Mobile) */}
+        {/* 8 Compact Product Cards Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           {filteredDevices.map((item) => (
             <Link
@@ -213,12 +181,8 @@ function OfferingsSection({ lang = 'en', onOpenQuote }) {
                   loading="lazy"
                 />
 
-                {/* Top Overlay Badge & Action Arrow */}
-                <div className="absolute top-2.5 inset-x-2.5 flex items-center justify-between pointer-events-none">
-                  <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-xs">
-                    {isArabic ? item.badgeAr : item.badgeEn}
-                  </span>
-
+                {/* Top Overlay Action Arrow (Badge Removed) */}
+                <div className="absolute top-2.5 right-2.5 flex items-center justify-end pointer-events-none">
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 backdrop-blur-md text-slate-800 flex items-center justify-center shadow-xs group-hover:bg-[#00A3E8] group-hover:text-white transition-all duration-200">
                     <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>

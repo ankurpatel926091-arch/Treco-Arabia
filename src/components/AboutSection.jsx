@@ -13,7 +13,6 @@ import {
   Users,
   ChevronRight,
   Mic,
-  Volume2,
   Cpu,
   Zap,
   Activity,
@@ -31,52 +30,39 @@ import voiceEcosystemBadges from '../assets/image.png';
 function AboutSection({ lang = 'en', onOpenQuote }) {
   const isArabic = lang === 'ar';
   
-  // Top-level division switcher: 'smart-home' or 'industrial'
   const [activeDivision, setActiveDivision] = useState('smart-home');
-
-  // Visual sub-view toggles
-  const [smartHomeView, setSmartHomeView] = useState('voice'); // 'voice' | 'villa'
-  const [industrialView, setIndustrialView] = useState('control'); // 'control' | 'plant'
-
-  // Smart Home Voice preset index
+  const [smartHomeView, setSmartHomeView] = useState('voice');
+  const [industrialView, setIndustrialView] = useState('control');
   const [activeVoicePreset, setActiveVoicePreset] = useState(0);
-
-  // Industrial specialization index
   const [activeIndustrialTab, setActiveIndustrialTab] = useState(0);
 
-  // Minimal Voice Presets
   const voicePresets = [
     {
       id: 'ac',
       command: isArabic ? 'أليكسا، شغلي المكيف على ١٨ درجة' : 'Alexa, Turn AC to 18 degrees',
-      target: isArabic ? 'تكييف الصالة' : 'Climate & AC',
       response: isArabic ? 'تم ضبط التكييف على ١٨°م' : 'Living room AC set to 18°C.',
       icon: '❄️'
     },
     {
       id: 'night',
       command: isArabic ? 'أليكسا، تصبح على خير' : 'Alexa, Good Night',
-      target: isArabic ? 'وضع النوم' : 'Good Night',
       response: isArabic ? 'إطفاء الإضاءة، إغلاق الستائر، قفل الأبواب' : 'Lights off, curtains closed, doors locked.',
       icon: '🌙'
     },
     {
       id: 'cinema',
       command: isArabic ? 'هي جوجل، وقت الفيلم' : 'Hey Google, Movie Time',
-      target: isArabic ? 'سينما منزلية' : 'Movie Time',
       response: isArabic ? 'خفت إضاءة الصالة ١٠٪ وإغلاق الستائر' : 'Lights dimmed to 10%, shades closed.',
       icon: '🎬'
     },
     {
       id: 'away',
       command: isArabic ? 'سيري، أنا مغادر المنزل' : 'Siri, I am Leaving',
-      target: isArabic ? 'وضع المغادرة' : 'Away Mode',
       response: isArabic ? 'تفعيل الأمان وتوفير الطاقة' : 'Security armed, power-saving active.',
       icon: '🚗'
     }
   ];
 
-  // Minimal Industrial Specializations (Concise & Punchy)
   const industrialSpecializations = [
     {
       id: 'mcc',
@@ -108,7 +94,6 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
     }
   ];
 
-  // Universal Proven Track Record Stats
   const stats = [
     {
       value: '10+',
@@ -139,9 +124,8 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
   return (
     <section 
       id="about" 
-      className="pt-20 sm:pt-24 pb-12 sm:pb-16 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-gradient-to-b from-white via-[#F8FAFD] to-[#EFF5FB]"
+      className="pt-16 sm:pt-24 pb-10 sm:pb-16 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-gradient-to-b from-white via-[#F8FAFD] to-[#EFF5FB]"
     >
-      {/* ====== Ambient Lighting Background ====== */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -152,7 +136,6 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
         }}
       />
 
-      {/* Subtle Tech Grid Texture */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -161,25 +144,20 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
         }}
       />
 
-      {/* Top Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00A3E8]/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ========================================================= */}
-        {/* SECTION HEADER: MINIMAL & CLEAN                           */}
-        {/* ========================================================= */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+        {/* SECTION HEADER */}
+        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-10">
           
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#00A3E8]/35 text-[#00A3E8] text-xs font-bold tracking-widest uppercase mb-3.5 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#00A3E8]/35 text-[#00A3E8] text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00A3E8] animate-pulse" />
             <span>{isArabic ? 'من نحن • نبذة عن تريكو العربية' : 'WHO WE ARE • ABOUT TRECO ARABIA'}</span>
             <Sparkles className="w-3 h-3 text-[#00A3E8]" />
           </div>
 
-          {/* Main Headline */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-3.5">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12] mb-3">
             {isArabic ? (
               <>
                 رواد حلول <span className="text-[#00A3E8]">المنازل الذكية</span> و <span className="text-[#00A3E8]">الأتمتة الصناعية</span> في المملكة
@@ -191,92 +169,72 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
             )}
           </h2>
 
-          {/* Minimal 1-Sentence Narrative */}
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-xl mx-auto mb-6">
+          <p className="text-[11px] sm:text-sm text-slate-600 leading-relaxed font-normal max-w-xl mx-auto mb-5">
             {isArabic
               ? 'انطلاقاً من مقرنا في جدة، تقدم تريكو العربية حلول أتمتة شاملة تجمع بين فخامة المنازل الذكية وصلابة الأنظمة الصناعية وفق معايير SASO.'
               : 'Headquartered in Jeddah, Treco Arabia delivers SASO-compliant architectural smart living and heavy-duty industrial automation across Saudi Arabia.'}
           </p>
 
-          {/* ======================================================= */}
-          {/* DUAL DIVISION SEGMENTED SWITCHER                        */}
-          {/* ======================================================= */}
-          <div className="inline-flex p-1 rounded-2xl bg-white border border-slate-200 shadow-xs max-w-md mx-auto w-full">
-            
-            {/* Division 1: Smart Home */}
+          {/* DUAL DIVISION SWITCHER */}
+          <div className="inline-flex p-1 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-xs max-w-md mx-auto w-full">
             <button
               type="button"
               onClick={() => setActiveDivision('smart-home')}
-              className={`flex-1 py-2.5 px-4 rounded-xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+              className={`flex-1 py-2 px-3 rounded-lg sm:rounded-xl font-black text-[11px] sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer ${
                 activeDivision === 'smart-home'
                   ? 'bg-gradient-to-r from-[#00A3E8] to-[#0086C4] text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
-              <Home className={`w-4 h-4 ${activeDivision === 'smart-home' ? 'text-white' : 'text-[#00A3E8]'}`} />
+              <Home className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeDivision === 'smart-home' ? 'text-white' : 'text-[#00A3E8]'}`} />
               <span>{isArabic ? 'المنازل الذكية' : 'Smart Home'}</span>
             </button>
 
-            {/* Division 2: Industrial */}
             <button
               type="button"
               onClick={() => setActiveDivision('industrial')}
-              className={`flex-1 py-2.5 px-4 rounded-xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+              className={`flex-1 py-2 px-3 rounded-lg sm:rounded-xl font-black text-[11px] sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer ${
                 activeDivision === 'industrial'
                   ? 'bg-gradient-to-r from-[#00A3E8] to-[#0086C4] text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
-              <Factory className={`w-4 h-4 ${activeDivision === 'industrial' ? 'text-white' : 'text-[#00A3E8]'}`} />
+              <Factory className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeDivision === 'industrial' ? 'text-white' : 'text-[#00A3E8]'}`} />
               <span>{isArabic ? 'الأتمتة الصناعية' : 'Industrial Automation'}</span>
             </button>
-
           </div>
 
         </div>
 
-        {/* ========================================================= */}
-        {/* MAIN CARD CONTAINER                                       */}
-        {/* ========================================================= */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-[0_15px_45px_-15px_rgba(15,23,42,0.06)] p-5 sm:p-8 lg:p-10 mb-10 relative overflow-hidden">
+        {/* MAIN CARD CONTAINER */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-[0_15px_45px_-15px_rgba(15,23,42,0.06)] p-4 sm:p-8 lg:p-10 mb-8 relative overflow-hidden">
           
-          {/* Corner Ambient Tints */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-[#00A3E8]/8 blur-[70px] pointer-events-none rounded-full" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-sky-400/6 blur-[70px] pointer-events-none rounded-full" />
 
-          {/* ======================================================= */}
-          {/* VIEW A: SMART HOME & VOICE (MINIMAL THEORY & CLEAN)     */}
-          {/* ======================================================= */}
+          {/* VIEW A: SMART HOME */}
           {activeDivision === 'smart-home' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
               
-              {/* Left Column: Voice Presets & Ecosystem */}
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
-                  
-                  {/* Headline */}
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
+                  <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
                     {isArabic ? (
-                      <>
-                        ادخل عالم <span className="text-[#00A3E8]">التحكم الصوتي</span> والأتمتة المنزلية
-                      </>
+                      <>ادخل عالم <span className="text-[#00A3E8]">التحكم الصوتي</span> والأتمتة المنزلية</>
                     ) : (
-                      <>
-                        Enter a world of <span className="text-[#00A3E8]">Voice-controlled</span> Home Automation
-                      </>
+                      <>Enter a world of <span className="text-[#00A3E8]">Voice-controlled</span> Home Automation</>
                     )}
                   </h3>
 
-                  {/* Concise 1-Line Subtitle */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 font-normal">
+                  <p className="text-slate-600 text-[11px] sm:text-sm leading-relaxed mb-4 font-normal">
                     {isArabic
                       ? 'قل فقط: "أليكسا، تصبح على خير" لتنسيق الإضاءة والتكييف والستائر والأمان بأمر واحد.'
                       : 'Say, “Alexa, Good Night,” and watch your smart home adjust lights, close curtains, and set the perfect AC temperature.'}
                   </p>
 
-                  {/* Interactive Voice Preset Buttons */}
+                  {/* Voice Presets */}
                   <div className="mb-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2">
                       {voicePresets.map((preset, idx) => {
                         const isSelected = activeVoicePreset === idx;
                         return (
@@ -284,19 +242,19 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                             key={preset.id}
                             type="button"
                             onClick={() => setActiveVoicePreset(idx)}
-                            className={`p-2.5 rounded-xl border text-left rtl:text-right transition-all flex items-center justify-between cursor-pointer ${
+                            className={`p-2 rounded-lg sm:rounded-xl border text-left rtl:text-right transition-all flex items-center justify-between cursor-pointer ${
                               isSelected
                                 ? 'bg-[#00A3E8]/10 border-[#00A3E8] text-slate-900'
                                 : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-white hover:border-[#00A3E8]/40'
                             }`}
                           >
-                            <div className="flex items-center gap-2 min-w-0">
-                              <span className="text-base flex-shrink-0">{preset.icon}</span>
-                              <div className="text-xs font-bold truncate text-slate-900">
+                            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                              <span className="text-sm sm:text-base flex-shrink-0">{preset.icon}</span>
+                              <div className="text-[10px] sm:text-xs font-bold truncate text-slate-900">
                                 "{preset.command}"
                               </div>
                             </div>
-                            <div className={`w-2 h-2 rounded-full flex-shrink-0 ml-1.5 rtl:mr-1.5 rtl:ml-0 ${
+                            <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0 ml-1 rtl:mr-1 rtl:ml-0 ${
                               isSelected ? 'bg-[#00A3E8]' : 'bg-slate-300'
                             }`} />
                           </button>
@@ -305,73 +263,61 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                     </div>
                   </div>
 
-                  {/* Sleek Minimal Feedback Strip */}
-                  <div className="p-2.5 px-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3 mb-5">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
-                      <span className="text-xs font-bold text-slate-800 truncate">
+                  <div className="p-2 px-3 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
+                      <span className="text-[10px] sm:text-xs font-bold text-slate-800 truncate">
                         {voicePresets[activeVoicePreset].response}
                       </span>
                     </div>
-                    <span className="text-[10px] font-bold text-[#00A3E8] bg-sky-50 px-2 py-0.5 rounded-md flex-shrink-0">
+                    <span className="text-[9px] sm:text-[10px] font-bold text-[#00A3E8] bg-sky-50 px-1.5 sm:px-2 py-0.5 rounded-md flex-shrink-0">
                       Hub Active
                     </span>
                   </div>
 
-                  {/* Official Ecosystem Badges Strip */}
                   <div className="pt-2 border-t border-slate-100 flex items-center w-full">
-  <img 
-    src={voiceEcosystemBadges} 
-    alt="Works with Apple Home, Amazon Alexa, Google Home"
-    className="w-full h-auto object-contain rounded-lg border border-slate-200 bg-white p-1"
-  />
-</div>
-
+                    <img 
+                      src={voiceEcosystemBadges} 
+                      alt="Works with Apple Home, Amazon Alexa, Google Home"
+                      className="w-full h-auto object-contain rounded-lg border border-slate-200 bg-white p-1"
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Right Column: Visual Stage (Podiums & Bright Image) */}
-              <div className="lg:col-span-6 relative">
-                
-                {/* Visual Container (Bright & Clean) */}
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-gradient-to-b from-slate-50 via-white to-sky-50/30 p-5 sm:p-6 min-h-[380px] sm:min-h-[420px] flex flex-col justify-between shadow-xs">
+              <div className="lg:col-span-6 relative mt-2 lg:mt-0">
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 bg-gradient-to-b from-slate-50 via-white to-sky-50/30 p-3 sm:p-6 min-h-[280px] sm:min-h-[420px] flex flex-col justify-between shadow-xs">
                   
-                  {/* Top Bar: View Mode Switcher */}
-                  <div className="flex items-center justify-between relative z-20 mb-3">
-                    <div className="inline-flex p-1 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between relative z-20 mb-3 gap-2 sm:gap-0">
+                    <div className="inline-flex p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-white border border-slate-200 shadow-xs">
                       <button
                         type="button"
                         onClick={() => setSmartHomeView('voice')}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                          smartHomeView === 'voice'
-                            ? 'bg-[#00A3E8] text-white shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
+                        className={`px-2 py-1 sm:px-3 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
+                          smartHomeView === 'voice' ? 'bg-[#00A3E8] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
                         }`}
                       >
-                        <Mic className="w-3.5 h-3.5" />
+                        <Mic className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                         <span>{isArabic ? 'أجهزة الصوت' : 'Smart Speakers'}</span>
                       </button>
                       <button
                         type="button"
                         onClick={() => setSmartHomeView('villa')}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                          smartHomeView === 'villa'
-                            ? 'bg-[#00A3E8] text-white shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
+                        className={`px-2 py-1 sm:px-3 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
+                          smartHomeView === 'villa' ? 'bg-[#00A3E8] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
                         }`}
                       >
-                        <Eye className="w-3.5 h-3.5" />
+                        <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                         <span>{isArabic ? 'فيلا ذكية' : 'Luxury Villa'}</span>
                       </button>
                     </div>
 
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 sm:py-1 rounded-full border border-emerald-200">
+                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600" />
                       <span>{isArabic ? 'متوافق بالكامل' : 'Ecosystem Ready'}</span>
                     </span>
                   </div>
 
-                  {/* SUB-VIEW 1 & 2 WITH SLIDE-IN FROM RIGHT EFFECT */}
                   <AnimatePresence mode="wait">
                     {smartHomeView === 'voice' ? (
                       <motion.div 
@@ -382,49 +328,43 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="relative z-10 flex flex-col items-center justify-center flex-1 my-2"
                       >
-                        
-                        {/* Floating Speech Bubble */}
-                        <div className="relative mb-2 animate-float self-center sm:self-start sm:ml-6 rtl:sm:ml-0 rtl:sm:mr-6 z-20">
-                          <div className="px-3.5 py-2 rounded-2xl bg-gradient-to-r from-[#00A3E8] to-[#0086C4] text-white shadow-md flex items-center gap-2">
-                            <Radio className="w-3.5 h-3.5 text-white animate-pulse" />
-                            <span className="font-extrabold text-xs sm:text-sm">
+                        <div className="relative mb-2 self-center sm:self-start sm:ml-6 z-20">
+                          <div className="px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#00A3E8] to-[#0086C4] text-white shadow-md flex items-center gap-1.5 sm:gap-2">
+                            <Radio className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white animate-pulse" />
+                            <span className="font-extrabold text-[10px] sm:text-sm">
                               "{voicePresets[activeVoicePreset].command}"
                             </span>
                           </div>
-                          <div className="w-2.5 h-2.5 bg-[#00A3E8] rotate-45 absolute -bottom-1 left-6 rtl:left-auto rtl:right-6" />
+                          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#00A3E8] rotate-45 absolute -bottom-1 left-4 sm:left-6" />
                         </div>
 
-                        {/* Speakers Image on Pedestals (jsd.png) */}
-                        <div className="relative max-w-[320px] sm:max-w-[360px] w-full flex items-center justify-center">
+                        <div className="relative max-w-[200px] sm:max-w-[360px] w-full flex items-center justify-center">
                           <img 
                             src={smartSpeakersImg} 
-                            alt="Smart Home Voice Assistants on Pedestals"
-                            className="w-full h-auto max-h-[260px] sm:max-h-[300px] object-contain drop-shadow-md"
+                            alt="Smart Home Voice Assistants"
+                            className="w-full h-auto max-h-[160px] sm:max-h-[300px] object-contain drop-shadow-md"
                           />
                         </div>
-
                       </motion.div>
                     ) : (
-                      /* SUB-VIEW 2: LUXURY VILLA (BRIGHT & CLEAR — NO DARKNESS) */
                       <motion.div 
                         key="villa"
                         initial={{ opacity: 0, x: isArabic ? -40 : 40 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: isArabic ? 40 : -40 }}
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative z-10 rounded-xl overflow-hidden flex-1 min-h-[260px] border border-slate-200 group bg-slate-100"
+                        className="relative z-10 rounded-lg sm:rounded-xl overflow-hidden flex-1 min-h-[180px] sm:min-h-[260px] border border-slate-200 group bg-slate-100"
                       >
                         <img 
                           src={smartHomeImg} 
                           alt="Saudi Luxury Villa Living"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0 opacity-100"
                         />
-                        {/* Frosted minimal pill tag at bottom */}
-                        <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-2.5 px-3.5 rounded-xl border border-slate-200/90 shadow-sm flex items-center justify-between">
-                          <span className="text-xs font-black text-slate-900">
-                            {isArabic ? 'إضاءة DALI وتكييف ذكي وسيناريوهات مخصصة' : 'Ambient DALI Lighting & Smart Climate Integration'}
+                        <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 bg-white/95 backdrop-blur-md p-2 rounded-lg sm:rounded-xl border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-0">
+                          <span className="text-[9px] sm:text-xs font-black text-slate-900">
+                            {isArabic ? 'إضاءة DALI وتكييف ذكي' : 'Ambient DALI Lighting & Smart AC'}
                           </span>
-                          <span className="text-[10px] font-bold text-[#00A3E8] bg-sky-50 px-2 py-0.5 rounded">
+                          <span className="text-[8px] sm:text-[10px] font-bold text-[#00A3E8] bg-sky-50 px-1.5 py-0.5 rounded">
                             SASO Spec
                           </span>
                         </div>
@@ -432,59 +372,47 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                     )}
                   </AnimatePresence>
 
-                  {/* Direct Link Below Visual */}
-                  <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-slate-500 font-medium">
-                      {isArabic ? 'حلول سكنية متكاملة للفلل والقصور' : 'Architectural automation for Saudi villas'}
+                  <div className="relative z-10 pt-2 sm:pt-3 border-t border-slate-100 flex items-center justify-between mt-2 sm:mt-0">
+                    <span className="text-[9px] sm:text-xs text-slate-500 font-medium">
+                      {isArabic ? 'حلول سكنية متكاملة' : 'Architectural automation for villas'}
                     </span>
                     <Link
                       to="/smart-home"
-                      className="inline-flex items-center gap-1 text-xs font-black text-[#00A3E8] hover:text-blue-600 transition-colors group"
+                      className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-black text-[#00A3E8] hover:text-blue-600 transition-colors group"
                     >
-                      <span>{isArabic ? 'استكشف الأنظمة' : 'Explore Systems'}</span>
-                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+                      <span>{isArabic ? 'استكشف' : 'Explore Systems'}</span>
+                      <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </Link>
                   </div>
 
                 </div>
-
               </div>
 
             </div>
           )}
 
-          {/* ======================================================= */}
-          {/* VIEW B: INDUSTRIAL AUTOMATION (MINIMAL THEORY & NO DARKNESS) */}
-          {/* ======================================================= */}
+          {/* VIEW B: INDUSTRIAL */}
           {activeDivision === 'industrial' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
               
-              {/* Left Column: Industrial Capabilities (Minimal & Concise) */}
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
-
-                  {/* Headline */}
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
+                  <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
                     {isArabic ? (
-                      <>
-                        أنظمة <span className="text-[#00A3E8]">التحكم الصناعي ومراكز MCC</span>
-                      </>
+                      <>أنظمة <span className="text-[#00A3E8]">التحكم الصناعي ومراكز MCC</span></>
                     ) : (
-                      <>
-                        Industrial <span className="text-[#00A3E8]">SCADA & MCC Control</span> Systems
-                      </>
+                      <>Industrial <span className="text-[#00A3E8]">SCADA & MCC Control</span> Systems</>
                     )}
                   </h3>
 
-                  {/* Minimal 1-Sentence Subtitle */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 font-normal">
+                  <p className="text-slate-600 text-[11px] sm:text-sm leading-relaxed mb-4 font-normal">
                     {isArabic
                       ? 'لوحات تحكم المحركات MCC وأنظمة SCADA للمراقبة اللحظية المصممة لتحمل المناخ الصحراوي ومطابقة لمواصفات SASO.'
                       : 'Desert-rated Motor Control Centers (MCC), PLCs, and redundant SCADA telemetry engineered strictly to Saudi SASO & IEC regulations.'}
                   </p>
 
-                  {/* Minimal Compact Industrial Specialization Cards */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
+                  {/* Industrial Cards */}
+                  <div className="grid grid-cols-2 gap-2 sm:gap-2.5 mb-4">
                     {industrialSpecializations.map((spec, idx) => {
                       const Icon = spec.icon;
                       const isSelected = activeIndustrialTab === idx;
@@ -492,28 +420,28 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                         <div
                           key={spec.id}
                           onClick={() => setActiveIndustrialTab(idx)}
-                          className={`p-3 rounded-xl border transition-all cursor-pointer ${
+                          className={`p-2 sm:p-3 rounded-lg sm:rounded-xl border transition-all cursor-pointer ${
                             isSelected
                               ? 'bg-[#00A3E8]/10 border-[#00A3E8] shadow-xs'
                               : 'bg-slate-50 border-slate-200 hover:bg-white hover:border-[#00A3E8]/40'
                           }`}
                         >
-                          <div className="flex items-center gap-2.5 mb-1.5">
-                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                          <div className="flex items-center gap-1.5 sm:gap-2.5 mb-1 sm:mb-1.5">
+                            <div className={`w-5 h-5 sm:w-7 sm:h-7 rounded flex items-center justify-center flex-shrink-0 ${
                               isSelected ? 'bg-[#00A3E8] text-white' : 'bg-white border border-slate-200 text-slate-700'
                             }`}>
-                              <Icon className="w-3.5 h-3.5" />
+                              <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                             </div>
-                            <div className="text-xs font-black text-slate-900 truncate">
+                            <div className="text-[9px] sm:text-xs font-black text-slate-900 truncate">
                               {spec.title}
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-between">
-                            <span className="text-[10px] text-slate-500 font-medium truncate">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0">
+                            <span className="text-[8px] sm:text-[10px] text-slate-500 font-medium truncate">
                               {spec.desc}
                             </span>
-                            <span className="text-[9px] font-bold text-[#00A3E8] bg-sky-50 px-1.5 py-0.5 rounded flex-shrink-0">
+                            <span className="text-[8px] sm:text-[9px] font-bold text-[#00A3E8] bg-sky-50 px-1 py-0.5 rounded flex-shrink-0 w-max">
                               {spec.spec.split('•')[0].trim()}
                             </span>
                           </div>
@@ -522,18 +450,17 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                     })}
                   </div>
 
-                  {/* Minimal Standards Strip */}
-                  <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#00A3E8]" />
+                  <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-[9px] sm:text-xs font-bold">
+                      <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00A3E8]" />
                       <span>SASO Certified</span>
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold">
-                      <Check className="w-3.5 h-3.5 text-[#00A3E8]" />
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-[9px] sm:text-xs font-bold">
+                      <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00A3E8]" />
                       <span>IEC 61131-3</span>
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold">
-                      <Award className="w-3.5 h-3.5 text-[#00A3E8]" />
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-[9px] sm:text-xs font-bold">
+                      <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00A3E8]" />
                       <span>ISO 9001:2015</span>
                     </span>
                   </div>
@@ -541,48 +468,39 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                 </div>
               </div>
 
-              {/* Right Column: Industrial Showcase (BRIGHT IMAGE — NO DARKNESS) */}
-              <div className="lg:col-span-6 relative">
-                
-                {/* Visual Container (Bright & Clean — White Frame) */}
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-gradient-to-b from-slate-50 via-white to-sky-50/30 p-5 sm:p-6 min-h-[380px] sm:min-h-[420px] flex flex-col justify-between shadow-xs">
+              <div className="lg:col-span-6 relative mt-2 lg:mt-0">
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 bg-gradient-to-b from-slate-50 via-white to-sky-50/30 p-3 sm:p-6 min-h-[280px] sm:min-h-[420px] flex flex-col justify-between shadow-xs">
                   
-                  {/* Top Bar: View Mode Switcher + Status */}
-                  <div className="flex items-center justify-between relative z-20 mb-3">
-                    <div className="inline-flex p-1 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between relative z-20 mb-3 gap-2 sm:gap-0">
+                    <div className="inline-flex p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-white border border-slate-200 shadow-xs">
                       <button
                         type="button"
                         onClick={() => setIndustrialView('control')}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                          industrialView === 'control'
-                            ? 'bg-[#00A3E8] text-white shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
+                        className={`px-2 py-1 sm:px-3 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
+                          industrialView === 'control' ? 'bg-[#00A3E8] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
                         }`}
                       >
-                        <Zap className="w-3.5 h-3.5" />
-                        <span>{isArabic ? 'غرف التحكم MCC' : 'Control Rooms'}</span>
+                        <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                        <span>{isArabic ? 'غرف التحكم' : 'Control Rooms'}</span>
                       </button>
                       <button
                         type="button"
                         onClick={() => setIndustrialView('plant')}
-                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                          industrialView === 'plant'
-                            ? 'bg-[#00A3E8] text-white shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
+                        className={`px-2 py-1 sm:px-3 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
+                          industrialView === 'plant' ? 'bg-[#00A3E8] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
                         }`}
                       >
-                        <Factory className="w-3.5 h-3.5" />
-                        <span>{isArabic ? 'المصانع والمعدات' : 'Plant Facilities'}</span>
+                        <Factory className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                        <span>{isArabic ? 'المصانع' : 'Plant Facilities'}</span>
                       </button>
                     </div>
 
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 sm:py-1 rounded-full border border-emerald-200">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse" />
                       <span>SCADA LIVE</span>
                     </span>
                   </div>
 
-                  {/* BRIGHT IMAGE FRAME WITH SLIDE-IN FROM RIGHT EFFECT */}
                   <AnimatePresence mode="wait">
                     <motion.div 
                       key={industrialView}
@@ -590,32 +508,30 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: isArabic ? 40 : -40 }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="relative z-10 rounded-xl overflow-hidden flex-1 min-h-[250px] sm:min-h-[270px] border border-slate-200 group bg-slate-100 my-2"
+                      className="relative z-10 rounded-lg sm:rounded-xl overflow-hidden flex-1 min-h-[180px] sm:min-h-[270px] border border-slate-200 group bg-slate-100 my-2"
                     >
                       <img 
                         src={industrialView === 'control' ? imgControlRoom : industrialImg} 
-                        alt="Industrial Electrical Control Room"
+                        alt="Industrial Control Room"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0 opacity-100"
                       />
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Direct Link Below Visual */}
-                  <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-slate-500 font-medium">
-                      {isArabic ? 'هندسة متطورة للمصانع والمنشآت السعودية' : 'Turnkey engineering for Saudi industrial facilities'}
+                  <div className="relative z-10 pt-2 sm:pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[9px] sm:text-xs text-slate-500 font-medium">
+                      {isArabic ? 'هندسة متطورة للمصانع' : 'Turnkey engineering for plants'}
                     </span>
                     <Link
                       to="/industrial"
-                      className="inline-flex items-center gap-1 text-xs font-black text-[#00A3E8] hover:text-blue-600 transition-colors group"
+                      className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-black text-[#00A3E8] hover:text-blue-600 transition-colors group"
                     >
-                      <span>{isArabic ? 'استكشف المنظومات' : 'Explore Systems'}</span>
-                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+                      <span>{isArabic ? 'استكشف' : 'Explore Systems'}</span>
+                      <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </Link>
                   </div>
 
                 </div>
-
               </div>
 
             </div>
@@ -623,28 +539,26 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
 
         </div>
 
-        {/* ========================================================= */}
-        {/* BOTTOM METRICS STRIP: MINIMAL & CLEAN                     */}
-        {/* ========================================================= */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
+        {/* BOTTOM METRICS STRIP */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-6 sm:mb-8">
           {stats.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div 
                 key={idx}
-                className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-[#00A3E8]/50 transition-all flex items-center gap-3"
+                className="p-3 sm:p-4 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-[#00A3E8]/50 transition-all flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#00A3E8]/10 text-[#00A3E8] border border-[#00A3E8]/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#00A3E8]/10 text-[#00A3E8] border border-[#00A3E8]/20 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-slate-900 leading-none">
+                  <div className="text-lg sm:text-2xl font-black text-slate-900 leading-none">
                     {item.value}
                   </div>
-                  <div className="text-xs font-bold text-slate-700 mt-1 leading-tight">
+                  <div className="text-[10px] sm:text-xs font-bold text-slate-700 mt-1 leading-tight">
                     {item.label}
                   </div>
-                  <div className="text-[10px] text-slate-400 font-medium mt-0.5">
+                  <div className="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-0.5">
                     {item.sub}
                   </div>
                 </div>
@@ -653,26 +567,24 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
           })}
         </div>
 
-        {/* ========================================================= */}
-        {/* BOTTOM ACTION CTA BANNER                                  */}
-        {/* ========================================================= */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+               {/* BOTTOM ACTION CTA BANNER */}
+        <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
           
           <div className="text-center sm:text-left rtl:sm:text-right">
-            <h3 className="text-base sm:text-lg font-black text-white">
+            <h3 className="text-sm sm:text-lg font-black text-white">
               {isArabic ? 'جاهز لبدء مشروع الأتمتة الخاص بك؟' : 'Ready to Engineer Your Automation System?'}
             </h3>
-            <p className="text-xs text-slate-300 font-normal">
+            <p className="text-[10px] sm:text-xs text-slate-300 font-normal mt-1">
               {isArabic 
                 ? 'تواصل مع مهندسينا المعتمدين بجدة للحصول على دراسة فنية مخصصة.' 
                 : 'Consult our certified engineers in Jeddah for residential smart living or industrial systems.'}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 flex-shrink-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 w-full sm:w-auto mt-2 sm:mt-0">
             <Link
               to="/contact"
-              className="px-5 py-2.5 rounded-xl bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-xs transition-all flex items-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-[11px] sm:text-sm shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>{isArabic ? 'تواصل مع فريقنا الهندسي' : 'Consult Our Engineers'}</span>
               <ArrowRight className={`w-3.5 h-3.5 ${isArabic ? 'rotate-180' : ''}`} />
@@ -680,7 +592,7 @@ function AboutSection({ lang = 'en', onOpenQuote }) {
 
             <Link
               to={activeDivision === 'smart-home' ? '/smart-home' : '/industrial'}
-              className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all"
+              className="hidden sm:inline-flex px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-[11px] sm:text-sm transition-all"
             >
               <span>
                 {activeDivision === 'smart-home'

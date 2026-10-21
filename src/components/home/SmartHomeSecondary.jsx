@@ -142,7 +142,7 @@ function SmartHomeSecondary({ t, lang = 'en', onOpenQuote }) {
             <span>{isArabic ? 'حلول المنازل والمنشآت الذكية بالسعودية' : 'Smart Home & Building Automation in Saudi Arabia'}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-1">
             {isArabic ? (
               <>
                 أنظمة أتمتة متكاملة تواكب <span className="text-[#00A3E8]">رؤية السعودية ٢٠٣٠</span>
@@ -160,28 +160,14 @@ function SmartHomeSecondary({ t, lang = 'en', onOpenQuote }) {
               : 'Transforming luxury residences, residential compounds, and commercial buildings into intelligent spaces maximizing comfort, security, and energy efficiency.'}
           </p>
 
-          {/* Key Value Badges Strip */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-6">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>{isArabic ? 'ضمان ممتد ٥ سنوات' : '5-Year Extended Warranty'}</span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-sky-50 border border-sky-200 text-sky-800 text-[11px] font-bold">
-              <Zap className="w-3.5 h-3.5 text-[#00A3E8]" />
-              <span>{isArabic ? 'توفير استهلاك الطاقة حتى ٣٥٪' : 'Up to 35% Energy Savings'}</span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-purple-50 border border-purple-200 text-purple-800 text-[11px] font-bold">
-              <Award className="w-3.5 h-3.5 text-purple-600" />
-              <span>{isArabic ? 'معتمد وفق معايير SASO و IEC' : 'SASO & IEC Certified'}</span>
-            </div>
-          </div>
+              
 
         </div>
 
         {/* ============================================================ */}
         {/* SECTOR SWITCHER TABS (4 Pillars)                             */}
         {/* ============================================================ */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
+        <div className="flex items-center justify-start sm:justify-center gap-5 overflow-x-auto pb-1 mb-8 no-scrollbar">
           {sectors.map((sec, idx) => {
             const IconComponent = sec.icon;
             const isActive = activeTab === idx;

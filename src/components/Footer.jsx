@@ -13,6 +13,7 @@ function Footer({ t, lang }) {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-7 sm:pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          
           {/* Column 1: Brand Info */}
           <div className="space-y-3.5 sm:space-y-4">
             <Link
@@ -195,7 +196,7 @@ function Footer({ t, lang }) {
                   <ChevronRight
                     className={`w-4 h-4 text-[#00A3E8] ${lang === "ar" ? "rotate-180" : ""}`}
                   />
-                  <span>Lighting Automation</span>
+                  <span>{lang === "ar" ? "أتمتة الإضاءة" : "Lighting Automation"}</span>
                 </Link>
               </li>
               <li>
@@ -207,7 +208,7 @@ function Footer({ t, lang }) {
                   <ChevronRight
                     className={`w-4 h-4 text-[#00A3E8] ${lang === "ar" ? "rotate-180" : ""}`}
                   />
-                  <span>Smart Motorized Curtains</span>
+                  <span>{lang === "ar" ? "الستائر الكهربائية الذكية" : "Smart Motorized Curtains"}</span>
                 </Link>
               </li>
               <li>
@@ -219,7 +220,7 @@ function Footer({ t, lang }) {
                   <ChevronRight
                     className={`w-4 h-4 text-[#00A3E8] ${lang === "ar" ? "rotate-180" : ""}`}
                   />
-                  <span>Yale & ABEZ Digital Locks</span>
+                  <span>{lang === "ar" ? "أقفال Yale و ABEZ الرقمية" : "Yale & ABEZ Digital Locks"}</span>
                 </Link>
               </li>
               <li>
@@ -231,7 +232,7 @@ function Footer({ t, lang }) {
                   <ChevronRight
                     className={`w-4 h-4 text-[#00A3E8] ${lang === "ar" ? "rotate-180" : ""}`}
                   />
-                  <span>HVAC & AC Controllers</span>
+                  <span>{lang === "ar" ? "وحدات التحكم في التكييف HVAC" : "HVAC & AC Controllers"}</span>
                 </Link>
               </li>
               <li>
@@ -243,7 +244,7 @@ function Footer({ t, lang }) {
                   <ChevronRight
                     className={`w-4 h-4 text-[#00A3E8] ${lang === "ar" ? "rotate-180" : ""}`}
                   />
-                  <span>Industrial Control Rooms</span>
+                  <span>{lang === "ar" ? "غرف التحكم الصناعي" : "Industrial Control Rooms"}</span>
                 </Link>
               </li>
             </ul>
@@ -311,7 +312,9 @@ function Footer({ t, lang }) {
                     {lang === "ar" ? "المقر الرئيسي" : "Corporate Office"}
                   </span>
                   <span className="font-bold text-slate-200 group-hover/address:text-white transition-colors block text-xs sm:text-sm leading-relaxed mt-0.5">
-                    Majid Noor near Baladia Camp, Wadi Mraykh, Jeddah, KSA 23254
+                    {lang === "ar" 
+                      ? "ماجد نور بالقرب من معسكر البلدية، وادي مريخ، جدة، المملكة العربية السعودية 23254" 
+                      : "Majid Noor near Baladia Camp, Wadi Mraykh, Jeddah, KSA 23254"}
                   </span>
                 </div>
               </a>
@@ -320,39 +323,35 @@ function Footer({ t, lang }) {
         </div>
       </div>
 
-      {/* Bottom Legal Bar */}
-      <div className="bg-[#030C1C] border-t border-slate-800/80 py-3.5 sm:py-4 text-xs sm:text-sm text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Copyright */}
-          <div className="font-semibold">
-            © 2026 Treco Arabia. All rights reserved.
+      {/* Bottom Legal Bar - Translated to Arabic dynamically */}
+      <div className="bg-[#030C1C] border-t border-slate-800/80 py-4 sm:py-5 text-xs sm:text-sm text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-4 text-center lg:text-left">
+          
+          {/* 1. Copyright */}
+          <div className="font-semibold order-2 lg:order-1 text-slate-400">
+            {lang === "ar" 
+              ? "© 2026 تريكو العربية. جميع الحقوق محفوظة." 
+              : "© 2026 Treco Arabia. All rights reserved."}
           </div>
 
-          {/* Links & Admin Button */}
-          <div className="flex flex-wrap items-center gap-4 font-bold text-slate-200">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
+          {/* 2. Legal Links (Translated) */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 font-bold text-slate-300 order-3 lg:order-2">
+            <a href="#" className="hover:text-[#00A3E8] transition-colors">
+              {lang === "ar" ? "سياسة الخصوصية" : "Privacy Policy"}
             </a>
-            <span>|</span>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms & Conditions
+            <a href="#" className="hover:text-[#00A3E8] transition-colors">
+              {lang === "ar" ? "الشروط والأحكام" : "Terms & Conditions"}
             </a>
-            <span>|</span>
-            <a href="#" className="hover:text-white transition-colors">
-              Refund Policy
+            <a href="#" className="hover:text-[#00A3E8] transition-colors">
+              {lang === "ar" ? "سياسة الاسترداد" : "Refund Policy"}
             </a>
-
-            {/* Admin Login Badge */}
-            {/* <a href="/login" className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-white font-extrabold flex items-center gap-1.5 border border-slate-700">
-              <Lock className="w-3.5 h-3.5 text-[#00A3E8]" />
-              <span>Admin</span>
-            </a> */}
           </div>
 
-          {/* Designer Credit */}
-          <div className="flex items-center gap-2 text-white font-semibold">
-            <span>Designed by</span>
-
+          {/* 3. Designer Credit */}
+          <div className="flex items-center justify-center gap-2 text-white font-semibold order-1 lg:order-3">
+            <span className="text-slate-400">
+              {lang === "ar" ? "تصميم بواسطة" : "Designed by"}
+            </span>
             <a
               href="https://codecrafter.co.in"
               target="_blank"
@@ -362,10 +361,11 @@ function Footer({ t, lang }) {
               <img
                 src={ccLogo}
                 alt="Code Crafter"
-                className="h-8 sm:h-9 w-auto object-contain"
+                className="h-7 sm:h-8 w-auto object-contain"
               />
             </a>
           </div>
+
         </div>
       </div>
     </footer>

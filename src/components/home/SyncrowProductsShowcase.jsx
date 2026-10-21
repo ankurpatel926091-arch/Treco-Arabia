@@ -137,7 +137,7 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
   return (
     <section 
       ref={showcaseRef}
-      className="pt-20 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#EAF4FB] via-white to-[#EAF4FB] text-slate-900 border-b border-slate-200 relative overflow-hidden"
+      className="pt-18 sm:pt-18 pb-16 sm:pb-24 bg-gradient-to-b from-[#EAF4FB] via-white to-[#EAF4FB] text-slate-900 border-b border-slate-200 relative overflow-hidden"
     >
       {/* Ambient Lighting Backdrops */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-[#00A3E8]/10 via-sky-400/5 to-transparent blur-[160px] pointer-events-none rounded-full" />
@@ -157,15 +157,15 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
         {/* ============================================================ */}
         {/* 1. THE 6-CATEGORY SMART IOT DEVICES GRID (ABOVE NOW)         */}
         {/* ============================================================ */}
-        <div className="mb-20 sm:mb-28">
+        <div className="mb-18 sm:mb-20">
           
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <motion.h3 
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4"
             >
               {isArabic ? (
                 <>
@@ -183,7 +183,7 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed"
+              className="text-xs sm:text-base text-slate-600 font-normal leading-relaxed"
             >
               {isArabic
                 ? 'صُممت لتوفير أعلى درجات الاعتمادية. تتصل أجهزتنا بسلاسة عبر منظومة موحدة لضمان أداء مستمر في كافة مساحاتك.'
@@ -207,7 +207,8 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
                     delay: idx * 0.1, 
                     ease: [0.16, 1, 0.3, 1] 
                   }}
-                  className="rounded-3xl bg-gradient-to-br from-[#EAF3FA] via-[#F4F9FD] to-[#DCEEFB] p-6 sm:p-7 border border-slate-200/90 shadow-[0_15px_35px_-5px_rgba(0,163,232,0.1)] hover:shadow-[0_25px_50px_-10px_rgba(0,163,232,0.22)] hover:border-[#00A3E8] hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between"
+                  // Yahan se 'hover:-translate-y-2' remove kar diya gaya hai
+                  className="rounded-3xl bg-gradient-to-br from-[#EAF3FA] via-[#F4F9FD] to-[#DCEEFB] p-6 sm:p-7 border border-slate-200/90 shadow-[0_15px_35px_-5px_rgba(0,163,232,0.1)] hover:shadow-[0_25px_50px_-10px_rgba(0,163,232,0.22)] hover:border-[#00A3E8] transition-all duration-300 group flex flex-col justify-between"
                 >
                   <div>
                     {/* Header: Icon + Category Badge */}
@@ -221,18 +222,16 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#00A3E8] transition-colors tracking-tight">
+                    <h4 className="text-lg font-bold text-slate-900 mb-4 group-hover:text-[#00A3E8] transition-colors tracking-tight">
                       {isArabic ? cat.titleAr : cat.titleEn}
                     </h4>
 
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-4">
-                      {isArabic ? cat.descAr : cat.descEn}
-                    </p>
+                    {/* Description REMOVED */}
+                    
                   </div>
 
                   {/* High-Resolution Device Preview Image */}
-                  <div className="relative mt-2 pt-2 border-t border-slate-200/70 flex items-center justify-center h-44 overflow-hidden rounded-2xl bg-white/60 backdrop-blur-xs p-2">
+                  <div className="relative flex items-center justify-center h-44 overflow-hidden rounded-2xl bg-white/60 backdrop-blur-xs p-2">
                     <img 
                       src={cat.img} 
                       alt={cat.titleEn} 
@@ -279,7 +278,8 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
         <div className="pt-12 border-t border-slate-200">
           
           {/* Header (Syncrow Section 1 Style) */}
-          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+          {/* Changed mb-14 sm:mb-20 to mb-6 sm:mb-8 to reduce gap */}
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -322,7 +322,8 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
             </motion.p>
           </div>
 
-          <div className="relative py-8 sm:py-14">
+          {/* Reduced top padding on this wrapper to tighten gap further */}
+          <div className="relative py-2 sm:py-6">
             
             {/* Subtle Ambient Curved Wave Aura behind Devices */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[300px] sm:h-[420px] rounded-full bg-gradient-to-r from-[#00A3E8]/10 via-sky-300/15 to-[#00A3E8]/10 blur-[100px] pointer-events-none" />
@@ -338,11 +339,11 @@ function SyncrowProductsShowcase({ lang = 'en', onOpenQuote }) {
                   transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
                   className="group relative flex flex-col items-center"
                 >
-                  {/* Device Card Container */}
+                  {/* Device Card Container - Hover lift removed here too */}
                   <div className="relative w-full rounded-2xl sm:rounded-3xl p-3 sm:p-5 bg-gradient-to-b from-[#EBF4FA] via-white to-[#DCEEFB] border border-slate-200/90 shadow-[0_15px_35px_-5px_rgba(0,163,232,0.12),0_4px_15px_-2px_rgba(0,0,0,0.04)] group-hover:border-[#00A3E8] group-hover:shadow-[0_25px_50px_-10px_rgba(0,163,232,0.25)] transition-all duration-500 overflow-hidden">
                     
                     {/* Top Glowing Cyan Pill Indicator */}
-                    <div className="flex items-center justify-between mb-3 text-[10px] sm:text-xs font-mono font-bold text-slate-500">
+                    <div className="flex items-center justify-between mb-1.5 text-[10px] sm:text-xs font-mono font-bold text-slate-500">
                       <span className="px-2.5 py-0.5 rounded-full bg-white/90 border border-[#00A3E8]/30 text-[#00A3E8] shadow-2xs">
                         {item.badge}
                       </span>
