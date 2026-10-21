@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import IndustrialSection from '../components/IndustrialSection';
 import industrialBg from '../assets/header_background_img/industrial.png';
+import EngineeringStandards from '../components/home/EngineeringStandards';
+import IndustrialLiveMonitor from '../components/IndustrialLiveMonitor';
 
 // Count-up hook
 function useCountUp(target, duration = 2000, start = false) {
@@ -164,8 +166,15 @@ function IndustrialPage({ t, lang, onOpenQuote }) {
         </div>
       </section>
 
+      
+
       {/* Main Industrial Section Component */}
       <IndustrialSection t={t} lang={lang} onOpenQuote={onOpenQuote} />
+
+       {/* 8. Engineering Standards, SASO/IEC Compliance & Trust Section */}
+      <EngineeringStandards t={t} lang={lang} />
+
+      {/* < IndustrialLiveMonitor t={t} lang={lang} /> */}
 
       {/* Industrial Engineering Capabilities */}
       <section className="py-8 sm:py-16 relative bg-gradient-to-b from-white via-[#F0F7FF] to-white border-b border-slate-200 overflow-hidden">
@@ -222,6 +231,7 @@ function IndustrialPage({ t, lang, onOpenQuote }) {
 
         </div>
       </section>
+      
 
       {/* KPI STATS STRIP */}
       <section

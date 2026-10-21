@@ -64,12 +64,10 @@ function Navbar({ lang, setLang, t }) {
     }
   }, [location.pathname]);
 
-  // Handle outside click, touch, escape key, and scroll lock
   useEffect(() => {
     if (!mobileMenu) return;
 
     const handleOutsideInteraction = (event) => {
-      // If clicking inside the drawer or on the menu toggle button, don't close
       if (
         (drawerRef.current && drawerRef.current.contains(event.target)) ||
         (menuButtonRef.current && menuButtonRef.current.contains(event.target))
@@ -89,7 +87,6 @@ function Navbar({ lang, setLang, t }) {
     document.addEventListener("touchstart", handleOutsideInteraction);
     document.addEventListener("keydown", handleKeyDown);
 
-    // Prevent background scrolling while mobile menu is open
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -101,7 +98,6 @@ function Navbar({ lang, setLang, t }) {
     };
   }, [mobileMenu]);
 
-  // Close menu on desktop resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -124,21 +120,22 @@ function Navbar({ lang, setLang, t }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo - Navigates to Home */}
+        
+        {/* Brand Logo */}
         <Link
-  to="/"
-  onClick={() => {
-    setMobileMenu(false);
-    window.scrollTo(0, 0);
-  }}
-  className="flex items-center gap-3 group text-left cursor-pointer"
->
-  <img
-    src="/treco-logo.png"
-    alt="Treco Arabia"
-    className="h-14 sm:h-16 w-40 sm:w-52 object-contain group-hover:scale-105 transition-transform duration-300"
-  />
-</Link>
+          to="/"
+          onClick={() => {
+            setMobileMenu(false);
+            window.scrollTo(0, 0);
+          }}
+          className="flex items-center gap-3 group text-left cursor-pointer"
+        >
+          <img
+            src="/treco-logo.png"
+            alt="Treco Arabia"
+            className="h-14 sm:h-16 w-40 sm:w-52 object-contain group-hover:scale-105 transition-transform duration-300"
+          />
+        </Link>
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-8">
@@ -156,6 +153,7 @@ function Navbar({ lang, setLang, t }) {
 
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center gap-4">
+          
           {/* Language Switcher */}
           <button
             onClick={toggleLanguage}
@@ -165,33 +163,21 @@ function Navbar({ lang, setLang, t }) {
             <span>{t.nav.langName}</span>
           </button>
 
-          {/* Contact Us CTA Button - Modern Luxury Tech Pill with Live Indicator & Action Bubble */}
+          {/* NEW PROFESSIONAL CONTACT BUTTON */}
           <Link
             to="/contact"
             onClick={() => window.scrollTo(0, 0)}
-            className={`group relative inline-flex items-center gap-2.5 ps-4 pe-1.5 py-1.5 rounded-full text-xs font-black transition-all duration-300 cursor-pointer shadow-sm hover:shadow-[0_8px_25px_rgba(0,163,232,0.25)] ${
+            className={`group relative overflow-hidden inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-md ${
               isContactPage
-                ? "bg-slate-950 text-white border-2 border-[#00A3E8] shadow-[0_0_15px_rgba(0,163,232,0.3)]"
-                : "bg-slate-950 hover:bg-slate-900 text-white border border-slate-800 hover:border-[#00A3E8]/80"
+                ? "bg-[#00A3E8] text-white border border-[#00A3E8]"
+                : "bg-slate-900 text-white border border-slate-900 hover:border-[#00A3E8]"
             }`}
           >
-            {/* Live Online Pulse Indicator */}
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-
-            {/* Label */}
-            <span className="tracking-wide text-white group-hover:text-[#00A3E8] transition-colors">
-              {t.nav.contact}
-            </span>
-
-            {/* Cyan Action Bubble */}
-            <span className="w-7 h-7 rounded-full bg-[#00A3E8] group-hover:bg-cyan-300 text-slate-950 flex items-center justify-center font-black transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_12px_rgba(0,163,232,0.6)]">
-              <ChevronRight
-                className={`w-3.5 h-3.5 transition-transform duration-300 ${lang === "ar" ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"}`}
-              />
-            </span>
+            {/* Hover Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00A3E8]/0 via-[#00A3E8]/10 to-[#00A3E8]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            
+            <Phone className="w-4 h-4 text-[#00A3E8] group-hover:animate-pulse" />
+            <span className="relative z-10">{t.nav.contact}</span>
           </Link>
         </div>
 
@@ -228,13 +214,11 @@ function Navbar({ lang, setLang, t }) {
             className="fixed inset-0 top-20 z-50 md:hidden bg-slate-950/60 backdrop-blur-sm flex flex-col justify-start animate-fade-in"
             onClick={() => setMobileMenu(false)}
           >
-            {/* Menu Drawer Content Card */}
             <div
               ref={drawerRef}
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-b-3xl shadow-2xl border-b border-slate-200 px-5 pt-4 pb-6 space-y-2"
             >
-              {/* Menu List Items */}
               <div className="space-y-1.5">
                 {navLinks.map(({ path, label, icon: Icon }) => {
                   const isActive = location.pathname === path;
@@ -272,7 +256,7 @@ function Navbar({ lang, setLang, t }) {
                 })}
               </div>
 
-              {/* Bottom Actions inside Mobile Drawer */}
+              {/* Mobile Drawer Actions */}
               <div className="pt-3 border-t border-slate-100 space-y-2.5">
                 <a
                   href="tel:+966500761791"
@@ -284,7 +268,7 @@ function Navbar({ lang, setLang, t }) {
                       <Phone className="w-4 h-4" />
                     </div>
                     <span className="text-xs font-bold text-slate-500">
-                      Saudi Arabia Call
+                      {lang === "ar" ? "اتصل بالمملكة" : "Saudi Arabia Call"}
                     </span>
                   </div>
                   <span className="text-xs font-black text-slate-900 dir-ltr">
@@ -292,29 +276,17 @@ function Navbar({ lang, setLang, t }) {
                   </span>
                 </a>
 
+                {/* Mobile Contact Button Redesigned */}
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-slate-950 via-[#0A1426] to-slate-950 border border-slate-800 text-white font-extrabold text-sm shadow-lg flex items-center justify-between cursor-pointer group hover:border-[#00A3E8] transition-all"
+                  className="w-full py-3 px-5 rounded-xl bg-slate-900 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer group hover:bg-slate-800 transition-all"
                 >
-                  <div className="flex items-center gap-2.5">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                    </span>
-                    <span className="group-hover:text-[#00A3E8] transition-colors">
-                      {t.nav.contact}
-                    </span>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-[#00A3E8] text-slate-950 flex items-center justify-center font-bold group-hover:scale-105 group-hover:bg-cyan-300 transition-all">
-                    <ChevronRight
-                      className={`w-4 h-4 ${lang === "ar" ? "rotate-180" : ""}`}
-                    />
-                  </div>
+                  <Phone className="w-4 h-4 text-[#00A3E8]" />
+                  <span>{t.nav.contact}</span>
                 </button>
               </div>
             </div>
 
-            {/* Full Clickable Backdrop Area below Menu Drawer */}
             <div
               onClick={() => setMobileMenu(false)}
               className="flex-1 w-full cursor-pointer"

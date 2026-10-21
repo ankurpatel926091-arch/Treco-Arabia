@@ -15,6 +15,8 @@ import smartHomeBg from '../assets/header_background_img/smart-home.png';
 import smartTouchImg from '../assets/header_background_img/hero_clean_poster.jpg';
 import smartFiberSecurityImg from '../assets/offerings_products/biometric_lock.jpg';
 import smartThermostatImg from '../assets/offerings_products/smart_ac.jpg';
+import SyncrowProductsShowcase from '../components/home/SyncrowProductsShowcase';
+import VisualHomeControl from '../components/VisualHomeControl';
 
 function SmartHomePage({ t, lang, onOpenQuote }) {
   const isArabic = lang === 'ar';
@@ -91,6 +93,9 @@ function SmartHomePage({ t, lang, onOpenQuote }) {
 
         </div>
       </section>
+
+      < VisualHomeControl />
+
 
       {/* ========================================================= */}
       {/* 2. PHOTO & VISUAL-DRIVEN PILLARS                          */}
@@ -274,6 +279,9 @@ function SmartHomePage({ t, lang, onOpenQuote }) {
 
         </div>
       </section>
+
+      {/* 6. Syncrow IoT Products & App Showcase (4-Screen Parallax Wave & 6 Categories) */}
+      <SyncrowProductsShowcase lang={lang} onOpenQuote={onOpenQuote} />
 
       {/* ========================================================= */}
       {/* 3. INTERACTIVE ROOM VISUALIZER                           */}

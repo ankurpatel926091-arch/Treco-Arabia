@@ -47,8 +47,7 @@ function IndustrialSection({ lang, onOpenQuote }) {
           {products.map((item) => (
             <div 
               key={item.id}
-              /* Changed rounded-3xl to rounded-xl for less rounded corners */
-              className="bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-[0_10px_30px_rgba(0,163,232,0.06)] hover:shadow-[0_20px_45px_rgba(0,163,232,0.18)] hover:border-[#00A3E8] hover:-translate-y-2 transition-all group duration-300 flex flex-col justify-start overflow-hidden relative"
+              className="bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200/90 shadow-[0_10px_30px_rgba(0,163,232,0.06)] hover:shadow-[0_20px_45px_rgba(0,163,232,0.18)] hover:border-[#00A3E8] transition-all group duration-300 flex flex-col justify-start overflow-hidden relative"
             >
               {/* Top Subtle Border Accent Shimmer */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00A3E8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" />
@@ -63,7 +62,8 @@ function IndustrialSection({ lang, onOpenQuote }) {
                   <img 
                     src={item.image} 
                     alt={lang === 'ar' ? item.titleAr : item.titleEn}
-                    className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500"
+                    /* Zoom effect reduced from scale-108 to scale-105 */
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </Link>
@@ -85,7 +85,6 @@ function IndustrialSection({ lang, onOpenQuote }) {
               <div className="px-5 sm:px-6 pb-5 sm:pb-6 mt-auto">
                 <Link
                   to={`/industrial/${item.id}`}
-                  /* Changed rounded-xl to rounded-lg to match the sharper card look */
                   className="w-full py-3 rounded-lg bg-[#00A3E8] hover:bg-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-sm hover:shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 group/btn"
                 >
                   <span>{lang === 'ar' ? 'استكشف المزيد' : 'Explore More'}</span>

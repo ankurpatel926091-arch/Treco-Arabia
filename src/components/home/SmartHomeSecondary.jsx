@@ -297,20 +297,7 @@ function SmartHomeSecondary({ t, lang = 'en', onOpenQuote }) {
                     </span>
                   </div>
 
-                  {/* Bottom Caption Pill */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10">
-                    <div className="p-3 rounded-2xl bg-black/55 backdrop-blur-md border border-white/15 text-white shadow-xl flex items-center justify-between">
-                      <div>
-                        <div className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider">
-                          {isArabic ? 'المعايير المعتمدة' : 'Standard Specification'}
-                        </div>
-                        <div className="text-xs font-black text-white">KNX • DALI • Zigbee 3.0 • Matter</div>
-                      </div>
-                      <div className="w-7 h-7 rounded-lg bg-[#00A3E8] flex items-center justify-center text-white">
-                        <Sparkles className="w-3.5 h-3.5" />
-                      </div>
-                    </div>
-                  </div>
+                  
 
                 </motion.div>
               </AnimatePresence>
